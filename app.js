@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const authRoutes = require('./src/routes/auth-routes');
 
 class App {
@@ -9,7 +10,11 @@ class App {
     this.routes();
   }
 
-  middlewares() {}
+  middlewares() {
+    this.app.set('views', path.resolve('src', 'views'));
+    this.app.set('view engine', 'ejs');
+    this.app.use(express.static(path.resolve('public')));
+  }
 
   routes() {
     this.app.use(authRoutes);
