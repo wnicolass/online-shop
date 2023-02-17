@@ -1,5 +1,19 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
+require('dotenv').config();
+const express = require('express');
+const authRoutes = require('./src/routes/auth-routes');
 
-app.listen(process.env.PORT, () => console.log("App running"));
+class App {
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
+  }
+
+  middlewares() {}
+
+  routes() {
+    this.app.use(authRoutes);
+  }
+}
+
+module.exports = new App().app;
