@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* ------ CUSTOM PROPERTIES ------ */
+:root {
+  --color-gray-50: rgb(230, 234, 238);
+  --color-gray-100: rgb(195, 202, 207);
+  --color-gray-300: rgb(86, 92, 99);
+  --color-gray-400: rgb(60, 65, 70);
+
+  --primary-color-50: rgb(200, 231, 253);
+  --primary-color-100: rgb(183, 213, 253);
+  --primary-color-200: rgb(143, 186, 250);
+  --primary-color-400: rgb(58 105 192);
+  --primary-color-500: rgb(14, 90, 212);
+  --primary-color-700: rgb(35, 61, 109);
+  --primary-color-200-contrast: rgb(2, 35, 100);
+  --primary-color-500-contrast: white;
+
+  --color-error-100: rgb(255, 192, 180);
+  --color-error-500: rgb(199, 51, 15);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
+
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ------ GENERAL ------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-gray-50);
+  font-family: 'Montserrat', sans-serif;
+}
