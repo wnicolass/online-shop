@@ -5,7 +5,37 @@
   <main>
     <h1>Create a New Account</h1>
     <form action="" method="">
-
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email">
+      </div>
+      <div>
+        <label for="confirmEmail">Confirm E-mail</label>
+        <input type="email" name="confirmEmail" id="confirmEmail" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required minlength="6">
+      </div>
+      <hr>
+      <div>
+        <label for="fullName">Full Name</label>
+        <input type="text" name="fullName" id="fullName" required minlength="6">
+      </div>
+      <div>
+        <label for="street">Street</label>
+        <input type="text" name="street" id="street" required minlength="6">
+      </div>
+      <div>
+        <label for="postal">Postal Code</label>
+        <input type="text" name="postal" id="postal" inputmode="numeric" required>
+      </div>
+      <div>
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" required>
+      </div>
+      <button class="btn">Create Account</button>
+      <p id="switch-form"><a href="/login">Login instead</a></p>
     </form>
   </main>
 <%- include('../includes/footer.ejs') %>

@@ -1,6 +1,6 @@
 class AuthController {
   getSignUp(req, res) {
-    res.render('index');
+    res.render('customer/auth/signup');
   }
 
   getLogin(req, res) {
