@@ -3,6 +3,8 @@ class AuthController {
     res.render('customer/auth/signup');
   }
 
+  signUp(req, res) {}
+
   getLogin(req, res) {
     res.render('login');
   }
