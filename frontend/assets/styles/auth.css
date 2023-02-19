@@ -1,1 +1,42 @@
+h1 {
+  text-align: center;
+  color: var(--color-gray-300);
+}
 
+form {
+  background-color: var(--primary-color-500-contrast);
+  text-align: center;
+
+  max-width: 25rem;
+  margin: var(--space-8) auto;
+
+  border-radius: var(--border-radius-small);
+}
+
+form a {
+  position: relative;
+  color: var(--primary-color-200);
+  transition: color 0.3s ease;
+}
+
+form a:hover {
+  color: var(--primary-color-500);
+}
+
+form a::after {
+  content: '';
+  background-color: var(--primary-color-500);
+
+  height: 2px;
+  width: 0%;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  transition: width 0.3s ease;
+}
+
+form a:hover::after {
+  width: 100%;
+}
