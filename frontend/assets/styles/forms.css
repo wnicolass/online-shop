@@ -1,0 +1,28 @@
+/* ------ FORM GENERAL ------ */
+form hr {
+  border-color: var(--primary-color-200);
+  margin-block: var(--space-2);
+  width: 90%;
+}
+
+label {
+  color: var(--color-gray-300);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+input,
+textarea {
+  font: inherit;
+  background-color: var(--color-gray-50);
+
+  border: none;
+  border-radius: var(--border-radius-small);
+  padding: var(--space-2);
+
+  width: 90%;
+}
+
+input:focus {
+  outline-color: var(--primary-color-200);
+}
