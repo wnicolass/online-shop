@@ -1,3 +1,4 @@
+/* ------ AUTH GENERAL ------ */
 h1 {
   text-align: center;
   color: var(--color-gray-300);
@@ -5,17 +6,30 @@ h1 {
 
 form {
   background-color: var(--primary-color-500-contrast);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: var(--space-2);
 
   max-width: 25rem;
   margin: var(--space-8) auto;
+  padding-block: var(--space-2);
 
   border-radius: var(--border-radius-small);
+  box-shadow: var(--shadow-medium);
+}
+
+form div {
+  width: 100%;
 }
 
 form a {
-  position: relative;
+  display: inline-block;
   color: var(--primary-color-200);
+
+  position: relative;
   transition: color 0.3s ease;
 }
 
