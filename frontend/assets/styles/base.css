@@ -40,5 +40,44 @@
 
 body {
   background: var(--color-gray-50);
+  color: var(--color-gray-400);
   font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  width: min(50rem, 90%);
+  margin: 0 auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color-400);
+}
+
+.btn {
+  font: inherit;
+  color: var(--primary-color-500-contrast);
+  background-color: var(--primary-color-200);
+
+  border: 1px solid var(--primary-color-200);
+  border-radius: var(--border-radius-small);
+  padding: var(--space-1) var(--space-4);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-700);
+  border-color: var(--primary-color-700);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
