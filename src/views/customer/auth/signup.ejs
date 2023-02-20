@@ -5,6 +5,7 @@
   <main>
     <h1>Create a New Account</h1>
     <form action="/signup" method="POST">
+      <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email">

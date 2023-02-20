@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const authRoutes = require('./src/routes/auth-routes');
 
@@ -15,6 +16,7 @@ class App {
     this.app.set('view engine', 'ejs');
     this.app.use(express.static(path.resolve('public')));
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(cookieParser(process.env.COOKIE_SECRET));
   }
 
   routes() {

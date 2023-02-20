@@ -1,8 +1,10 @@
 const User = require('../models/UserModel');
+const { genToken } = require('../utils/genToken');
 
 class AuthController {
   getSignUp(req, res) {
-    res.render('customer/auth/signup');
+    const csrfToken = genToken(res, req);
+    res.render('customer/auth/signup', { csrfToken });
   }
 
   async signUp(req, res) {
@@ -24,7 +26,8 @@ class AuthController {
   }
 
   getLogin(req, res) {
-    res.render('customer/auth/login');
+    const csrfToken = genToken(res, req);
+    res.render('customer/auth/login', { csrfToken });
   }
 }
 
