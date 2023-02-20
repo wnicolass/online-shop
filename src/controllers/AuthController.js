@@ -1,12 +1,30 @@
+const User = require('../models/UserModel');
+
 class AuthController {
   getSignUp(req, res) {
     res.render('customer/auth/signup');
   }
 
-  signUp(req, res) {}
+  async signUp(req, res) {
+    const {
+      email, password, fullname, street, postal, city,
+    } = req.body;
+    const user = new User(
+      email,
+      password,
+      fullname,
+      street,
+      postal,
+      city,
+    );
+
+    await user.signUp();
+
+    res.redirect('/login');
+  }
 
   getLogin(req, res) {
-    res.render('login');
+    res.render('customer/auth/login');
   }
 }
 

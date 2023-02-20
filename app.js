@@ -14,6 +14,7 @@ class App {
     this.app.set('views', path.resolve('src', 'views'));
     this.app.set('view engine', 'ejs');
     this.app.use(express.static(path.resolve('public')));
+    this.app.use(express.urlencoded({ extended: false }));
   }
 
   routes() {
