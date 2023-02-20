@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { doubleCsrf } = require('csrf-csrf');
 const authController = require('../controllers/AuthController');
-const { options } = require('../config/csrfOptions');
+const { options } = require('../config/csrf-options');
 
 const { doubleCsrfProtection } = doubleCsrf(options);
 

@@ -1,5 +1,5 @@
 const User = require('../models/UserModel');
-const { genToken } = require('../utils/genToken');
+const { genToken } = require('../utils/gen-token');
 
 class AuthController {
   getSignUp(req, res) {

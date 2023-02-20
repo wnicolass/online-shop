@@ -3,6 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const authRoutes = require('./src/routes/auth-routes');
+const errorHandler = require('./src/middlewares/error-handler');
 
 class App {
   constructor() {
@@ -17,6 +18,7 @@ class App {
     this.app.use(express.static(path.resolve('public')));
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cookieParser(process.env.COOKIE_SECRET));
+    this.app.use(errorHandler);
   }
 
   routes() {
