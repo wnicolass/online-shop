@@ -1,6 +1,6 @@
 const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
-const { createUserSession } = require('../utils/authentication');
+const { createUserSession, destroyUserAuthSession } = require('../utils/authentication');
 
 class AuthController {
   getSignUp(req, res) {
@@ -49,6 +49,11 @@ class AuthController {
     return createUserSession(req, existingUser, () => {
       res.redirect('/');
     });
+  }
+
+  logout(req, res) {
+    destroyUserAuthSession(req);
+    res.redirect('/login');
   }
 }
 
