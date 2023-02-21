@@ -1,6 +1,7 @@
 const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
 const { createUserSession, destroyUserAuthSession } = require('../utils/authentication');
+const { areUserDataValid, areEqualEmails } = require('../utils/validation');
 
 class AuthController {
   getSignUp(req, res) {
@@ -9,6 +10,10 @@ class AuthController {
   }
 
   async signUp(req, res, next) {
+    if (!areUserDataValid(req.body) || !areEqualEmails(req.body)) {
+      return res.redirect('/signup');
+    }
+
     const {
       email, password, fullname, street, postal, city,
     } = req.body;
@@ -22,6 +27,12 @@ class AuthController {
     );
 
     try {
+      const userAlreadyExists = !!(await user.userExists());
+
+      if (userAlreadyExists) {
+        return res.redirect('/signup');
+      }
+
       await user.signUp();
     } catch (err) {
       return next(err);
