@@ -8,7 +8,7 @@ class AuthController {
     res.render('customer/auth/signup', { csrfToken });
   }
 
-  async signUp(req, res) {
+  async signUp(req, res, next) {
     const {
       email, password, fullname, street, postal, city,
     } = req.body;
@@ -21,9 +21,13 @@ class AuthController {
       city,
     );
 
-    await user.signUp();
+    try {
+      await user.signUp();
+    } catch (err) {
+      return next(err);
+    }
 
-    res.redirect('/login');
+    return res.redirect('/login');
   }
 
   getLogin(req, res) {
@@ -31,10 +35,16 @@ class AuthController {
     res.render('customer/auth/login', { csrfToken });
   }
 
-  async login(req, res) {
+  async login(req, res, next) {
     const { email, password } = req.body;
     const user = new User(email, password);
-    const existingUser = await user.userExists();
+    let existingUser;
+
+    try {
+      existingUser = await user.userExists();
+    } catch (err) {
+      return next(err);
+    }
 
     if (!existingUser) {
       return res.redirect('/login');
