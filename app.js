@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const session = require('express-session');
 const authRoutes = require('./src/routes/auth-routes');
+const baseRoutes = require('./src/routes/base-routes');
+const productRoutes = require('./src/routes/product-routes');
 const errorHandler = require('./src/middlewares/error-handler');
 const createSessionConfig = require('./src/config/session');
 
@@ -27,7 +29,9 @@ class App {
   }
 
   routes() {
+    this.app.use(baseRoutes);
     this.app.use(authRoutes);
+    this.app.use(productRoutes);
   }
 }
 

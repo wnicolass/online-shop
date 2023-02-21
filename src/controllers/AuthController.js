@@ -1,5 +1,6 @@
 const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
+const { createUserSession } = require('../utils/authentication');
 
 class AuthController {
   getSignUp(req, res) {
@@ -28,6 +29,26 @@ class AuthController {
   getLogin(req, res) {
     const csrfToken = genToken(res, req);
     res.render('customer/auth/login', { csrfToken });
+  }
+
+  async login(req, res) {
+    const { email, password } = req.body;
+    const user = new User(email, password);
+    const existingUser = await user.userExists();
+
+    if (!existingUser) {
+      return res.redirect('/login');
+    }
+
+    const arePasswordsEqual = await user.hasMatchingPasswords(existingUser.password);
+
+    if (!arePasswordsEqual) {
+      return res.redirect('/login');
+    }
+
+    return createUserSession(req, existingUser, () => {
+      res.redirect('/');
+    });
   }
 }
 
