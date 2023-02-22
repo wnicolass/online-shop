@@ -5,8 +5,10 @@
   <main>
     <h1>Login</h1>
     <% if (locals.error.length > 0) { %>
+      <section class="alert">
       <h2>Invalid Credentials</h2>
-      <section class="alert"><%= locals.error %></section>
+        <p><%= locals.error %></p>
+      </section>
     <% } %>
     <form action="/login" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
