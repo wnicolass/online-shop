@@ -19922,7 +19922,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ------ AUTH GENERAL ------ */\r\nh1 {\r\n  text-align: center;\r\n  color: var(--color-gray-300);\r\n}\r\n\r\nform {\r\n  background-color: var(--primary-color-500-contrast);\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  text-align: center;\r\n  gap: var(--space-2);\r\n\r\n  max-width: 25rem;\r\n  margin: var(--space-8) auto;\r\n  padding-block: var(--space-2);\r\n\r\n  border-radius: var(--border-radius-small);\r\n  box-shadow: var(--shadow-medium);\r\n}\r\n\r\nform div {\r\n  width: 100%;\r\n}\r\n\r\nform a {\r\n  display: inline-block;\r\n  color: var(--primary-color-200);\r\n\r\n  position: relative;\r\n  transition: color 0.3s ease;\r\n}\r\n\r\nform a:hover {\r\n  color: var(--primary-color-500);\r\n}\r\n\r\nform a::after {\r\n  content: '';\r\n  background-color: var(--primary-color-500);\r\n\r\n  height: 2px;\r\n  width: 0%;\r\n\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n\r\n  transition: width 0.3s ease;\r\n}\r\n\r\nform a:hover::after {\r\n  width: 100%;\r\n}\r\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/auth.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;EACE,kBAAkB;EAClB,4BAA4B;AAC9B;;AAEA;EACE,mDAAmD;;EAEnD,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;;EAEnB,gBAAgB;EAChB,2BAA2B;EAC3B,6BAA6B;;EAE7B,yCAAyC;EACzC,gCAAgC;AAClC;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,qBAAqB;EACrB,+BAA+B;;EAE/B,kBAAkB;EAClB,2BAA2B;AAC7B;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,WAAW;EACX,0CAA0C;;EAE1C,WAAW;EACX,SAAS;;EAET,kBAAkB;EAClB,SAAS;EACT,OAAO;;EAEP,2BAA2B;AAC7B;;AAEA;EACE,WAAW;AACb","sourcesContent":["/* ------ AUTH GENERAL ------ */\r\nh1 {\r\n  text-align: center;\r\n  color: var(--color-gray-300);\r\n}\r\n\r\nform {\r\n  background-color: var(--primary-color-500-contrast);\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  text-align: center;\r\n  gap: var(--space-2);\r\n\r\n  max-width: 25rem;\r\n  margin: var(--space-8) auto;\r\n  padding-block: var(--space-2);\r\n\r\n  border-radius: var(--border-radius-small);\r\n  box-shadow: var(--shadow-medium);\r\n}\r\n\r\nform div {\r\n  width: 100%;\r\n}\r\n\r\nform a {\r\n  display: inline-block;\r\n  color: var(--primary-color-200);\r\n\r\n  position: relative;\r\n  transition: color 0.3s ease;\r\n}\r\n\r\nform a:hover {\r\n  color: var(--primary-color-500);\r\n}\r\n\r\nform a::after {\r\n  content: '';\r\n  background-color: var(--primary-color-500);\r\n\r\n  height: 2px;\r\n  width: 0%;\r\n\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n\r\n  transition: width 0.3s ease;\r\n}\r\n\r\nform a:hover::after {\r\n  width: 100%;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ------ AUTH GENERAL ------ */\nh1 {\n  text-align: center;\n  color: var(--color-gray-300);\n}\n\n#customer-form {\n  background-color: var(--primary-color-500-contrast);\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  gap: var(--space-2);\n\n  max-width: 25rem;\n  margin: var(--space-8) auto;\n  padding-block: var(--space-2);\n\n  border-radius: var(--border-radius-small);\n  box-shadow: var(--shadow-medium);\n}\n\n#customer-form div {\n  width: 100%;\n}\n\n#customer-form a {\n  display: inline-block;\n  color: var(--primary-color-200);\n\n  position: relative;\n  transition: color 0.3s ease;\n}\n\n#customer-form a:hover {\n  color: var(--primary-color-500);\n}\n\n#customer-form a::after {\n  content: '';\n  background-color: var(--primary-color-500);\n\n  height: 2px;\n  width: 0%;\n\n  position: absolute;\n  bottom: 0;\n  left: 0;\n\n  transition: width 0.3s ease;\n}\n\n#customer-form a:hover::after {\n  width: 100%;\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/auth.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;EACE,kBAAkB;EAClB,4BAA4B;AAC9B;;AAEA;EACE,mDAAmD;;EAEnD,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;;EAEnB,gBAAgB;EAChB,2BAA2B;EAC3B,6BAA6B;;EAE7B,yCAAyC;EACzC,gCAAgC;AAClC;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,qBAAqB;EACrB,+BAA+B;;EAE/B,kBAAkB;EAClB,2BAA2B;AAC7B;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,WAAW;EACX,0CAA0C;;EAE1C,WAAW;EACX,SAAS;;EAET,kBAAkB;EAClB,SAAS;EACT,OAAO;;EAEP,2BAA2B;AAC7B;;AAEA;EACE,WAAW;AACb","sourcesContent":["/* ------ AUTH GENERAL ------ */\nh1 {\n  text-align: center;\n  color: var(--color-gray-300);\n}\n\n#customer-form {\n  background-color: var(--primary-color-500-contrast);\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  gap: var(--space-2);\n\n  max-width: 25rem;\n  margin: var(--space-8) auto;\n  padding-block: var(--space-2);\n\n  border-radius: var(--border-radius-small);\n  box-shadow: var(--shadow-medium);\n}\n\n#customer-form div {\n  width: 100%;\n}\n\n#customer-form a {\n  display: inline-block;\n  color: var(--primary-color-200);\n\n  position: relative;\n  transition: color 0.3s ease;\n}\n\n#customer-form a:hover {\n  color: var(--primary-color-500);\n}\n\n#customer-form a::after {\n  content: '';\n  background-color: var(--primary-color-500);\n\n  height: 2px;\n  width: 0%;\n\n  position: absolute;\n  bottom: 0;\n  left: 0;\n\n  transition: width 0.3s ease;\n}\n\n#customer-form a:hover::after {\n  width: 100%;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19977,7 +19977,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ------ FORM GENERAL ------ */\r\nform hr {\r\n  border-color: var(--primary-color-200);\r\n  margin-block: var(--space-2);\r\n  width: 90%;\r\n}\r\n\r\nlabel {\r\n  color: var(--color-gray-300);\r\n  display: block;\r\n  margin-bottom: var(--space-2);\r\n}\r\n\r\ninput,\r\ntextarea {\r\n  font: inherit;\r\n  background-color: var(--color-gray-50);\r\n\r\n  border: none;\r\n  border-radius: var(--border-radius-small);\r\n  padding: var(--space-2);\r\n\r\n  width: 90%;\r\n}\r\n\r\ninput:focus {\r\n  outline-color: var(--primary-color-200);\r\n}\r\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/forms.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;EACE,sCAAsC;EACtC,4BAA4B;EAC5B,UAAU;AACZ;;AAEA;EACE,4BAA4B;EAC5B,cAAc;EACd,6BAA6B;AAC/B;;AAEA;;EAEE,aAAa;EACb,sCAAsC;;EAEtC,YAAY;EACZ,yCAAyC;EACzC,uBAAuB;;EAEvB,UAAU;AACZ;;AAEA;EACE,uCAAuC;AACzC","sourcesContent":["/* ------ FORM GENERAL ------ */\r\nform hr {\r\n  border-color: var(--primary-color-200);\r\n  margin-block: var(--space-2);\r\n  width: 90%;\r\n}\r\n\r\nlabel {\r\n  color: var(--color-gray-300);\r\n  display: block;\r\n  margin-bottom: var(--space-2);\r\n}\r\n\r\ninput,\r\ntextarea {\r\n  font: inherit;\r\n  background-color: var(--color-gray-50);\r\n\r\n  border: none;\r\n  border-radius: var(--border-radius-small);\r\n  padding: var(--space-2);\r\n\r\n  width: 90%;\r\n}\r\n\r\ninput:focus {\r\n  outline-color: var(--primary-color-200);\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ------ FORM GENERAL ------ */\n#customer-form hr {\n  border-color: var(--primary-color-200);\n  margin-block: var(--space-2);\n  width: 90%;\n}\n\nlabel {\n  color: var(--color-gray-300);\n  display: block;\n  margin-bottom: var(--space-2);\n}\n\ninput,\ntextarea {\n  font: inherit;\n  background-color: var(--color-gray-50);\n\n  border: none;\n  border-radius: var(--border-radius-small);\n  padding: var(--space-2);\n\n  width: 90%;\n}\n\ninput:focus {\n  outline-color: var(--primary-color-200);\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/forms.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;EACE,sCAAsC;EACtC,4BAA4B;EAC5B,UAAU;AACZ;;AAEA;EACE,4BAA4B;EAC5B,cAAc;EACd,6BAA6B;AAC/B;;AAEA;;EAEE,aAAa;EACb,sCAAsC;;EAEtC,YAAY;EACZ,yCAAyC;EACzC,uBAAuB;;EAEvB,UAAU;AACZ;;AAEA;EACE,uCAAuC;AACzC","sourcesContent":["/* ------ FORM GENERAL ------ */\n#customer-form hr {\n  border-color: var(--primary-color-200);\n  margin-block: var(--space-2);\n  width: 90%;\n}\n\nlabel {\n  color: var(--color-gray-300);\n  display: block;\n  margin-bottom: var(--space-2);\n}\n\ninput,\ntextarea {\n  font: inherit;\n  background-color: var(--color-gray-50);\n\n  border: none;\n  border-radius: var(--border-radius-small);\n  padding: var(--space-2);\n\n  width: 90%;\n}\n\ninput:focus {\n  outline-color: var(--primary-color-200);\n}\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/navigation.css":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/navigation.css ***!
+  \*************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "#main-header {\n  width: 100%;\n  height: 4rem;\n\n  margin: 0 auto;\n  padding: 0 10%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  border-bottom: 1px solid var(--gray-color-500);\n  background-color: var(--primary-color-500);\n}\n\n#main-header a {\n  color: var(--primary-color-500-contrast);\n}\n\n#logo a {\n  font-weight: 700;\n  font-size: 1.5rem;\n}\n\n.nav-items {\n  display: flex;\n  align-items: center;\n  gap: var(--space-4);\n}\n\n.nav-items a {\n  position: relative;\n}\n\n.nav-items a::after {\n  content: '';\n  background-color: var(--primary-color-500-contrast);\n\n  height: 2px;\n  width: 0%;\n\n  position: absolute;\n  bottom: -22px;\n  left: 0;\n\n  transition: width 0.3s ease;\n}\n\n.nav-items a:hover::after {\n  width: 100%;\n}\n\n#mobile-menu-btn {\n  display: none;\n  flex-direction: column;\n  justify-content: space-around;\n\n  border: none;\n  cursor: pointer;\n  width: 2.25rem;\n  height: 2.25rem;\n\n  background-color: transparent;\n}\n\n#mobile-menu-btn span {\n  width: 2.25rem;\n  height: 0.2rem;\n  background-color: var(--primary-color-500-contrast);\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/navigation.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,YAAY;;EAEZ,cAAc;EACd,cAAc;EACd,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;;EAEnB,8CAA8C;EAC9C,0CAA0C;AAC5C;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,mDAAmD;;EAEnD,WAAW;EACX,SAAS;;EAET,kBAAkB;EAClB,aAAa;EACb,OAAO;;EAEP,2BAA2B;AAC7B;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,6BAA6B;;EAE7B,YAAY;EACZ,eAAe;EACf,cAAc;EACd,eAAe;;EAEf,6BAA6B;AAC/B;;AAEA;EACE,cAAc;EACd,cAAc;EACd,mDAAmD;AACrD","sourcesContent":["#main-header {\n  width: 100%;\n  height: 4rem;\n\n  margin: 0 auto;\n  padding: 0 10%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  border-bottom: 1px solid var(--gray-color-500);\n  background-color: var(--primary-color-500);\n}\n\n#main-header a {\n  color: var(--primary-color-500-contrast);\n}\n\n#logo a {\n  font-weight: 700;\n  font-size: 1.5rem;\n}\n\n.nav-items {\n  display: flex;\n  align-items: center;\n  gap: var(--space-4);\n}\n\n.nav-items a {\n  position: relative;\n}\n\n.nav-items a::after {\n  content: '';\n  background-color: var(--primary-color-500-contrast);\n\n  height: 2px;\n  width: 0%;\n\n  position: absolute;\n  bottom: -22px;\n  left: 0;\n\n  transition: width 0.3s ease;\n}\n\n.nav-items a:hover::after {\n  width: 100%;\n}\n\n#mobile-menu-btn {\n  display: none;\n  flex-direction: column;\n  justify-content: space-around;\n\n  border: none;\n  cursor: pointer;\n  width: 2.25rem;\n  height: 2.25rem;\n\n  background-color: transparent;\n}\n\n#mobile-menu-btn span {\n  width: 2.25rem;\n  height: 0.2rem;\n  background-color: var(--primary-color-500-contrast);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21041,6 +21068,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./frontend/assets/styles/navigation.css":
+/*!***********************************************!*\
+  !*** ./frontend/assets/styles/navigation.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_navigation_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./navigation.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/navigation.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_navigation_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_navigation_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_navigation_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_navigation_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -21453,6 +21535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_styles_base_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/styles/base.css */ "./frontend/assets/styles/base.css");
 /* harmony import */ var _assets_styles_forms_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/styles/forms.css */ "./frontend/assets/styles/forms.css");
 /* harmony import */ var _assets_styles_auth_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/styles/auth.css */ "./frontend/assets/styles/auth.css");
+/* harmony import */ var _assets_styles_navigation_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/styles/navigation.css */ "./frontend/assets/styles/navigation.css");
+
 
 
 

@@ -8,7 +8,7 @@
       <h2>Invalid Input</h2>
       <section class="alert"><%= locals.error %></section>
     <% } %>
-    <form action="/signup" method="POST">
+    <form id="customer-form" action="/signup" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>

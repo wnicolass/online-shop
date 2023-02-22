@@ -4,7 +4,7 @@ h1 {
   color: var(--color-gray-300);
 }
 
-form {
+#customer-form {
   background-color: var(--primary-color-500-contrast);
 
   display: flex;
@@ -21,11 +21,11 @@ form {
   box-shadow: var(--shadow-medium);
 }
 
-form div {
+#customer-form div {
   width: 100%;
 }
 
-form a {
+#customer-form a {
   display: inline-block;
   color: var(--primary-color-200);
 
@@ -33,11 +33,11 @@ form a {
   transition: color 0.3s ease;
 }
 
-form a:hover {
+#customer-form a:hover {
   color: var(--primary-color-500);
 }
 
-form a::after {
+#customer-form a::after {
   content: '';
   background-color: var(--primary-color-500);
 
@@ -51,6 +51,6 @@ form a::after {
   transition: width 0.3s ease;
 }
 
-form a:hover::after {
+#customer-form a:hover::after {
   width: 100%;
 }
