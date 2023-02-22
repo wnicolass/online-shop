@@ -4,36 +4,39 @@
   <%- include('../../shared/includes/header.ejs') %>
   <main>
     <h1>Create a New Account</h1>
+    <% if (locals.error) { %>
+      <p><%= locals.error %></p>
+    <% } %>
     <form action="/signup" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="<%= locals.email %>">
       </div>
       <div>
         <label for="confirmEmail">Confirm E-mail</label>
-        <input type="email" name="confirmEmail" id="confirmEmail" required>
+        <input type="email" name="confirmEmail" id="confirmEmail" required value="<%= locals.confirmEmail %>" >
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" required minlength="6">
+        <input type="password" name="password" id="password" required minlength="6" value="<%= locals.password %>" >
       </div>
       <hr>
       <div>
         <label for="fullname">Full Name</label>
-        <input type="text" name="fullname" id="fullname" required minlength="6">
+        <input type="text" name="fullname" id="fullname" required minlength="6" value="<%= locals.name %>" >
       </div>
       <div>
         <label for="street">Street</label>
-        <input type="text" name="street" id="street" required minlength="6">
+        <input type="text" name="street" id="street" required minlength="6" value="<%= locals.street %>" >
       </div>
       <div>
         <label for="postal">Postal Code</label>
-        <input type="text" name="postal" id="postal" inputmode="numeric" required>
+        <input type="text" name="postal" id="postal" inputmode="numeric" required value="<%= locals.postal %>" >
       </div>
       <div>
         <label for="city">City</label>
-        <input type="text" name="city" id="city" required>
+        <input type="text" name="city" id="city" required value="<%= locals.city %>">
       </div>
       <button class="btn">Create Account</button>
       <p id="switch-form"><a href="/login">Login instead</a></p>

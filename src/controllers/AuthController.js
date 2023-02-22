@@ -2,6 +2,7 @@ const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
 const { createUserSession, destroyUserAuthSession } = require('../utils/authentication');
 const { areUserDataValid, areEqualEmails } = require('../utils/validation');
+const setUserDataToFlash = require('../utils/flash-user-data');
 
 class AuthController {
   getSignUp(req, res) {
@@ -11,6 +12,8 @@ class AuthController {
 
   async signUp(req, res, next) {
     if (!areUserDataValid(req.body) || !areEqualEmails(req.body)) {
+      req.flash('error', 'Invalid. Please check your data.');
+      setUserDataToFlash(req);
       return res.redirect('/signup');
     }
 
@@ -30,6 +33,8 @@ class AuthController {
       const userAlreadyExists = !!(await user.userExists());
 
       if (userAlreadyExists) {
+        req.flash('error', 'User already exist. Choose another email.');
+        setUserDataToFlash(req);
         return res.redirect('/signup');
       }
 
@@ -58,12 +63,16 @@ class AuthController {
     }
 
     if (!existingUser) {
+      req.flash('error', 'User does not exist.');
+      setUserDataToFlash(req);
       return res.redirect('/login');
     }
 
     const arePasswordsEqual = await user.hasMatchingPasswords(existingUser.password);
 
     if (!arePasswordsEqual) {
+      req.flash('error', 'Invalid data - Please check your credentials.');
+      setUserDataToFlash(req);
       return res.redirect('/login');
     }
 
