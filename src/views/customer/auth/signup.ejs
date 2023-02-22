@@ -4,8 +4,9 @@
   <%- include('../../shared/includes/header.ejs') %>
   <main>
     <h1>Create a New Account</h1>
-    <% if (locals.error) { %>
-      <p><%= locals.error %></p>
+    <% if (locals.error.length > 0) { %>
+      <h2>Invalid Input</h2>
+      <section class="alert"><%= locals.error %></section>
     <% } %>
     <form action="/signup" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">

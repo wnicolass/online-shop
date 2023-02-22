@@ -12,9 +12,9 @@ class AuthController {
 
   async signUp(req, res, next) {
     if (!areUserDataValid(req.body) || !areEqualEmails(req.body)) {
-      req.flash('error', 'Invalid. Please check your data.');
+      req.flash('error', 'Please check your data.');
       setUserDataToFlash(req);
-      return res.redirect('/signup');
+      return req.session.save(() => res.redirect('/signup'));
     }
 
     const {
@@ -33,9 +33,9 @@ class AuthController {
       const userAlreadyExists = !!(await user.userExists());
 
       if (userAlreadyExists) {
-        req.flash('error', 'User already exist. Choose another email.');
+        req.flash('error', 'User already exists. Choose another email.');
         setUserDataToFlash(req);
-        return res.redirect('/signup');
+        return req.session.save(() => res.redirect('/signup'));
       }
 
       await user.signUp();
@@ -64,16 +64,16 @@ class AuthController {
 
     if (!existingUser) {
       req.flash('error', 'User does not exist.');
-      setUserDataToFlash(req);
-      return res.redirect('/login');
+      setUserDataToFlash(req, res);
+      return req.session.save(() => res.redirect('/login'));
     }
 
     const arePasswordsEqual = await user.hasMatchingPasswords(existingUser.password);
 
     if (!arePasswordsEqual) {
-      req.flash('error', 'Invalid data - Please check your credentials.');
+      req.flash('error', 'Please check your email and password.');
       setUserDataToFlash(req);
-      return res.redirect('/login');
+      return req.session.save(() => res.redirect('/login'));
     }
 
     return createUserSession(req, existingUser, () => {

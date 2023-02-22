@@ -4,8 +4,9 @@
   <%- include('../../shared/includes/header.ejs') %>
   <main>
     <h1>Login</h1>
-    <% if (locals.error) { %>
-      <p><%= locals.error %></p>
+    <% if (locals.error.length > 0) { %>
+      <h2>Invalid Credentials</h2>
+      <section class="alert"><%= locals.error %></section>
     <% } %>
     <form action="/login" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
