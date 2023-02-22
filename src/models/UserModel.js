@@ -27,6 +27,14 @@ class User {
       address: this.address,
     });
   }
+
+  userExists() {
+    return UserModel.findOne({ email: this.email });
+  }
+
+  hasMatchingPasswords(hashedPassword) {
+    return bcrypt.compare(this.password, hashedPassword);
+  }
 }
 
 module.exports = User;

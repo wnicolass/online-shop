@@ -1,5 +1,5 @@
 /* ------ FORM GENERAL ------ */
-form hr {
+#customer-form hr {
   border-color: var(--primary-color-200);
   margin-block: var(--space-2);
   width: 90%;

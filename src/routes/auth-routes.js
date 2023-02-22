@@ -8,5 +8,7 @@ const { doubleCsrfProtection } = doubleCsrf(options);
 router.get('/signup', authController.getSignUp);
 router.post('/signup', doubleCsrfProtection, authController.signUp);
 router.get('/login', authController.getLogin);
+router.post('/login', doubleCsrfProtection, authController.login);
+router.post('/logout', authController.logout);
 
 module.exports = router;

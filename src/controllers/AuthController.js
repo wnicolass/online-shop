@@ -1,5 +1,8 @@
 const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
+const { createUserSession, destroyUserAuthSession } = require('../utils/authentication');
+const { areUserDataValid, areEqualEmails } = require('../utils/validation');
+const setUserDataToFlash = require('../utils/flash-user-data');
 
 class AuthController {
   getSignUp(req, res) {
@@ -7,7 +10,13 @@ class AuthController {
     res.render('customer/auth/signup', { csrfToken });
   }
 
-  async signUp(req, res) {
+  async signUp(req, res, next) {
+    if (!areUserDataValid(req.body) || !areEqualEmails(req.body)) {
+      req.flash('error', 'Please check your data.');
+      setUserDataToFlash(req);
+      return req.session.save(() => res.redirect('/signup'));
+    }
+
     const {
       email, password, fullname, street, postal, city,
     } = req.body;
@@ -20,14 +29,63 @@ class AuthController {
       city,
     );
 
-    await user.signUp();
+    try {
+      const userAlreadyExists = !!(await user.userExists());
 
-    res.redirect('/login');
+      if (userAlreadyExists) {
+        req.flash('error', 'User already exists. Choose another email.');
+        setUserDataToFlash(req);
+        return req.session.save(() => res.redirect('/signup'));
+      }
+
+      await user.signUp();
+    } catch (err) {
+      return next(err);
+    }
+
+    return res.redirect('/login');
   }
 
   getLogin(req, res) {
     const csrfToken = genToken(res, req);
     res.render('customer/auth/login', { csrfToken });
+  }
+
+  async login(req, res, next) {
+    const { email, password } = req.body;
+    const user = new User(email, password);
+    let existingUser;
+
+    try {
+      existingUser = await user.userExists();
+    } catch (err) {
+      return next(err);
+    }
+
+    if (!existingUser) {
+      req.flash('error', 'User does not exist.');
+      setUserDataToFlash(req, res);
+      return req.session.save(() => res.redirect('/login'));
+    }
+
+    const arePasswordsEqual = await user.hasMatchingPasswords(existingUser.password);
+
+    if (!arePasswordsEqual) {
+      req.flash('error', 'Please check your email and password.');
+      setUserDataToFlash(req);
+      return req.session.save(() => res.redirect('/login'));
+    }
+
+    // await User.makeAdmin(existingUser._id);
+    console.log(existingUser.isAdmin);
+    return createUserSession(req, existingUser, () => {
+      res.redirect('/');
+    });
+  }
+
+  logout(req, res) {
+    destroyUserAuthSession(req);
+    res.redirect('/login');
   }
 }
 

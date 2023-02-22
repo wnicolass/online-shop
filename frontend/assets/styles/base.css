@@ -81,3 +81,27 @@ a {
 .btn:active {
   transform: scale(0.98);
 }
+
+.alert {
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-error-100);
+  color: var(--color-error-500);
+
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.alert h2 {
+  font-size: 1rem;
+  margin: var(--space-2) 0;
+  text-transform: uppercase;
+}
+
+.alert p {
+  margin: var(--space-2) 0;
+}

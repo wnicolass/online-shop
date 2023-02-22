@@ -4,15 +4,21 @@
   <%- include('../../shared/includes/header.ejs') %>
   <main>
     <h1>Login</h1>
-    <form action="/signup" method="POST">
+    <% if (locals.error.length > 0) { %>
+      <section class="alert">
+      <h2>Invalid Credentials</h2>
+        <p><%= locals.error %></p>
+      </section>
+    <% } %>
+    <form id="customer-form" action="/login" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="<%= locals.email %>">
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" required minlength="6">
+        <input type="password" name="password" id="password" required minlength="6" value="<%= locals.password %>">
       </div>
       <button class="btn">Login</button>
       <p id="switch-form"><a href="/signup">Create a new user</a></p>
