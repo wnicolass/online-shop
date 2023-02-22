@@ -76,6 +76,8 @@ class AuthController {
       return req.session.save(() => res.redirect('/login'));
     }
 
+    // await User.makeAdmin(existingUser._id);
+    console.log(existingUser.isAdmin);
     return createUserSession(req, existingUser, () => {
       res.redirect('/');
     });
