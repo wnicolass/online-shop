@@ -27,6 +27,7 @@
 
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
+  --border-radius-large: 15px;
 
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
