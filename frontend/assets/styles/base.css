@@ -43,11 +43,12 @@ body {
   background: var(--color-gray-50);
   color: var(--color-gray-400);
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
 main {
   width: min(50rem, 90%);
-  margin: 0 auto;
+  margin: var(--space-4) auto 0 auto;
 }
 
 ul,
