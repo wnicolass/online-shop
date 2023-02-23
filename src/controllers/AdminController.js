@@ -1,11 +1,13 @@
 class AdminController {
-  getProducts() {
-
+  getProducts(req, res) {
+    res.render('admin/products/all-products');
   }
 
-  getNewProduct() {}
+  getNewProduct(req, res) {
+    res.render('admin/products/new-product');
+  }
 
-  createProduct() {}
+  createProduct(req, res) {}
 }
 
 module.exports = new AdminController();

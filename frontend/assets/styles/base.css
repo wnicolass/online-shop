@@ -64,7 +64,7 @@ a {
 .btn {
   font: inherit;
   color: var(--primary-color-500-contrast);
-  background-color: var(--primary-color-200);
+  background-color: var(--primary-color-500);
 
   border: 1px solid var(--primary-color-200);
   border-radius: var(--border-radius-small);
@@ -75,9 +75,18 @@ a {
   transition: all 0.3s ease;
 }
 
+.btn-alt {
+  background-color: transparent;
+  color: var(--primary-color-500);
+}
+
 .btn:hover {
   background-color: var(--primary-color-700);
   border-color: var(--primary-color-700);
+}
+
+.btn-alt:hover {
+  color: var(--primary-color-500-contrast);
 }
 
 .btn:active {
@@ -106,4 +115,9 @@ a {
 
 .alert p {
   margin: var(--space-2) 0;
+}
+
+textarea {
+  resize: none;
+  outline-color: var(--primary-color-200);
 }
