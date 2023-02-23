@@ -86,4 +86,5 @@
   width: 2.25rem;
   height: 0.2rem;
   background-color: var(--primary-color-500-contrast);
+  border-radius: var(--border-radius-small);
 }

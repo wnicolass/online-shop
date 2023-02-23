@@ -1,25 +1,40 @@
+#aside-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  min-height: 100vh;
+  min-width: 100vw;
+
+  background-color: #000;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+#aside-bg:has(+ #mobile-menu.active) {
+  display: block;
+}
+
 #mobile-menu {
-  width: 0;
+  width: 15rem;
   height: 100%;
   background-color: var(--primary-color-500);
   position: absolute;
   top: 0;
   right: 0;
-  transition: width 0.3s ease;
 
-  z-index: 1;
+  transition: transform 0.3s ease;
+  transform: translateX(15rem);
+  z-index: 2;
 }
 
 #mobile-menu.active {
-  width: 15rem;
+  transform: translateX(0);
 }
 
 #mobile-menu #close-btn {
   display: none;
-}
-
-#mobile-menu.active #close-btn {
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
 
@@ -35,26 +50,27 @@
   top: 26px;
 }
 
+#mobile-menu.active #close-btn {
+  display: flex;
+}
+
 #mobile-menu #close-btn span {
   width: 2.25rem;
   height: 0.2rem;
   background-color: var(--primary-color-500-contrast);
+  border-radius: var(--border-radius-small);
 }
 
 #mobile-menu #close-btn span:first-of-type {
-  transform: rotate(42deg);
+  transform: rotate(42deg) translateY(6px);
 }
 
 #mobile-menu #close-btn span:last-of-type {
-  transform: rotate(-42deg) translateY(-12px) translateX(12px);
+  transform: rotate(-42deg) translate(7px, -11px);
 }
 
-#mobile-menu nav {
+#mobile-menu nav .nav-items {
   display: none;
-}
-
-#mobile-menu.active nav {
-  display: block;
 }
 
 #mobile-menu.active nav .nav-items {
@@ -67,7 +83,7 @@
 
 #mobile-menu nav .nav-items a {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 #mobile-menu.active nav .nav-items a::after {
