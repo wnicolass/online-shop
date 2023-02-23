@@ -27,6 +27,7 @@
 
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
+  --border-radius-large: 15px;
 
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -42,11 +43,12 @@ body {
   background: var(--color-gray-50);
   color: var(--color-gray-400);
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
 main {
   width: min(50rem, 90%);
-  margin: 0 auto;
+  margin: var(--space-4) auto 0 auto;
 }
 
 ul,

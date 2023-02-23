@@ -2,18 +2,31 @@ const User = require('../models/UserModel');
 const { genToken } = require('../utils/gen-token');
 const { createUserSession, destroyUserAuthSession } = require('../utils/authentication');
 const { areUserDataValid, areEqualEmails } = require('../utils/validation');
-const setUserDataToFlash = require('../utils/flash-user-data');
+const { setFlashData, getFlashData } = require('../utils/flash-user-data');
 
 class AuthController {
   getSignUp(req, res) {
+    let userData = getFlashData(req);
+    if (!userData) {
+      userData = {
+        email: '',
+        confirmEmail: '',
+        password: '',
+        fullname: '',
+        street: '',
+        postal: '',
+        city: '',
+      };
+    }
+
     const csrfToken = genToken(res, req);
-    res.render('customer/auth/signup', { csrfToken });
+    res.render('customer/auth/signup', { csrfToken, userData });
   }
 
   async signUp(req, res, next) {
     if (!areUserDataValid(req.body) || !areEqualEmails(req.body)) {
       req.flash('error', 'Please check your data.');
-      setUserDataToFlash(req);
+      setFlashData(req);
       return req.session.save(() => res.redirect('/signup'));
     }
 
@@ -34,7 +47,7 @@ class AuthController {
 
       if (userAlreadyExists) {
         req.flash('error', 'User already exists. Choose another email.');
-        setUserDataToFlash(req);
+        setFlashData(req);
         return req.session.save(() => res.redirect('/signup'));
       }
 
@@ -47,8 +60,16 @@ class AuthController {
   }
 
   getLogin(req, res) {
+    let userData = getFlashData(req);
+    if (!userData) {
+      userData = {
+        email: '',
+        password: '',
+      };
+    }
+
     const csrfToken = genToken(res, req);
-    res.render('customer/auth/login', { csrfToken });
+    res.render('customer/auth/login', { csrfToken, userData });
   }
 
   async login(req, res, next) {
@@ -64,7 +85,7 @@ class AuthController {
 
     if (!existingUser) {
       req.flash('error', 'User does not exist.');
-      setUserDataToFlash(req, res);
+      setFlashData(req);
       return req.session.save(() => res.redirect('/login'));
     }
 
@@ -72,12 +93,10 @@ class AuthController {
 
     if (!arePasswordsEqual) {
       req.flash('error', 'Please check your email and password.');
-      setUserDataToFlash(req);
+      setFlashData(req);
       return req.session.save(() => res.redirect('/login'));
     }
 
-    // await User.makeAdmin(existingUser._id);
-    console.log(existingUser.isAdmin);
     return createUserSession(req, existingUser, () => {
       res.redirect('/');
     });
