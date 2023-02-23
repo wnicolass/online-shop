@@ -14,11 +14,11 @@
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" value="<%= locals.email %>">
+        <input type="email" name="email" id="email" value="<%= userData.email %>">
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" required minlength="6" value="<%= locals.password %>">
+        <input type="password" name="password" id="password" required minlength="6" value="<%= userData.password %>">
       </div>
       <button class="btn">Login</button>
       <p id="switch-form"><a href="/signup">Create a new user</a></p>

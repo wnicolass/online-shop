@@ -1,10 +1,20 @@
-function setUserDataToFlash(req) {
+function setFlashData(req) {
   delete req.body.csrfToken;
 
-  Object.entries(req.body).forEach((entry) => {
-    const [dataName, dataValue] = entry;
-    req.flash(dataName, dataValue);
-  });
+  req.session.flashedData = {
+    ...req.body,
+  };
 }
 
-module.exports = setUserDataToFlash;
+function getFlashData(req) {
+  const sessionData = req.session.flashedData;
+
+  req.session.flashedData = null;
+
+  return sessionData;
+}
+
+module.exports = {
+  setFlashData,
+  getFlashData,
+};
