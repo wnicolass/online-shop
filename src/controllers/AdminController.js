@@ -1,4 +1,5 @@
 const { genToken } = require('../utils/gen-token');
+const Product = require('../models/ProductModel');
 
 class AdminController {
   getProducts(req, res) {
@@ -10,11 +11,20 @@ class AdminController {
     res.render('admin/products/new-product', { csrfToken });
   }
 
-  createProduct(req, res) {
-    console.log(req.body);
-    console.log(req.file);
+  async createProduct(req, res, next) {
+    delete req.body.csrfToken;
+    const product = new Product({
+      ...req.body,
+      image: req.file.filename,
+    });
 
-    res.redirect('/admin/products');
+    try {
+      await product.save();
+    } catch (err) {
+      return next(err);
+    }
+
+    return res.redirect('/admin/products');
   }
 }
 
