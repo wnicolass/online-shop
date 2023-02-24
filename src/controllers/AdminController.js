@@ -2,8 +2,13 @@ const { genToken } = require('../utils/gen-token');
 const Product = require('../models/ProductModel');
 
 class AdminController {
-  getProducts(req, res) {
-    res.render('admin/products/all-products');
+  async getProducts(req, res, next) {
+    try {
+      const products = await Product.findAll();
+      return res.render('admin/products/all-products', { products });
+    } catch (err) {
+      return next(err);
+    }
   }
 
   getNewProduct(req, res) {

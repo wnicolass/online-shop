@@ -12,6 +12,10 @@ class Product {
     this.image = productData.image;
     this.imagePath = `product-data/images/${productData.image}`;
     this.imageUrl = `/products/assets/images/${productData.image}`;
+
+    if (productData._id) {
+      this.id = productData._id.toString();
+    }
   }
 
   async save() {
@@ -24,6 +28,11 @@ class Product {
     };
 
     await ProductModel.create(productData);
+  }
+
+  static async findAll() {
+    const allProducts = await ProductModel.find();
+    return allProducts.map((productDoc) => new Product(productDoc));
   }
 }
 
