@@ -9,5 +9,7 @@ const { doubleCsrfProtection } = doubleCsrf(options);
 router.get('/products', adminController.getProducts);
 router.get('/products/new', adminController.getNewProduct);
 router.post('/products', imageUpload, doubleCsrfProtection, adminController.createProduct);
+router.get('/products/:id', adminController.getUpdateProduct);
+router.post('/products/:id', doubleCsrfProtection, adminController.updateProduct);
 
 module.exports = router;

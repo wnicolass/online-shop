@@ -31,6 +31,10 @@ class AdminController {
 
     return res.redirect('/admin/products');
   }
+
+  getUpdateProduct(req, res) {}
+
+  updateProduct(req, res) {}
 }
 
 module.exports = new AdminController();
