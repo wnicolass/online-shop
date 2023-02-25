@@ -17,20 +17,21 @@
 }
 
 #mobile-menu {
+  background-color: var(--primary-color-500);
+
   width: 15rem;
   height: 100%;
-  background-color: var(--primary-color-500);
+
   position: absolute;
   top: 0;
-  right: 0;
+  right: -15rem;
+  z-index: 2;
 
   transition: transform 0.3s ease;
-  transform: translateX(15rem);
-  z-index: 2;
 }
 
 #mobile-menu.active {
-  transform: translateX(0);
+  transform: translateX(-15rem);
 }
 
 #mobile-menu #close-btn {
