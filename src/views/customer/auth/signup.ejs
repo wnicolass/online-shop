@@ -10,7 +10,7 @@
         <%= locals.error %>
       </section>
     <% } %>
-    <form id="customer-form" action="/signup" method="POST">
+    <form class="form" action="/signup" method="POST">
       <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
       <div>
         <label for="email">E-mail</label>

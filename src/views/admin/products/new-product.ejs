@@ -1,0 +1,15 @@
+<%- include('../../shared/includes/head.ejs', { pageTitle: 'Add New Product' }) %>
+</head>
+<body>
+  <%- include('../../shared/includes/header.ejs') %>
+  <main>
+    <h1>Add new Product</h1>
+    <%- include('./includes/product-form.ejs', { csrfToken, submitPath: '/admin/products', product: {
+      title: '',
+      summary: '',
+      price: '',
+      description: ''
+    } }) %>
+  </main>
+<%- include('../../shared/includes/footer.ejs') %>
+

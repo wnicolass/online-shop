@@ -25,7 +25,8 @@ class App {
   middlewares() {
     this.app.set('views', path.resolve('src', 'views'));
     this.app.set('view engine', 'ejs');
-    this.app.use(express.static(path.resolve('public')));
+    this.app.use(express.static(path.resolve(__dirname, 'public')));
+    this.app.use('/products/assets', express.static('product-data'));
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(session(sessionConfig));
     this.app.use(cookieParser(process.env.COOKIE_SECRET));
