@@ -32,7 +32,16 @@ class AdminController {
     return res.redirect('/admin/products');
   }
 
-  getUpdateProduct(req, res) {}
+  async getUpdateProduct(req, res, next) {
+    try {
+      const { id } = req.params;
+      const product = await Product.findProductById(id);
+      const csrfToken = genToken(res, req);
+      return res.render('admin/products/update-product', { csrfToken, product });
+    } catch (err) {
+      return next(err);
+    }
+  }
 
   updateProduct(req, res) {}
 }

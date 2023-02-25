@@ -34,6 +34,18 @@ class Product {
     const allProducts = await ProductModel.find();
     return allProducts.map((productDoc) => new Product(productDoc));
   }
+
+  static async findProductById(productId) {
+    const foundProduct = await ProductModel.findById(productId);
+
+    if (!foundProduct) {
+      const error = new Error('Could not find product with provided id.');
+      error.code = 404;
+      throw error;
+    }
+
+    return foundProduct;
+  }
 }
 
 module.exports = Product;
