@@ -43,7 +43,24 @@ class AdminController {
     }
   }
 
-  updateProduct(req, res) {}
+  async updateProduct(req, res, next) {
+    delete req.body.csrfToken;
+    const product = new Product({ ...req.body, _id: req.params.id });
+    console.log(product);
+
+    if (req.file) {
+      product.replaceImage(req.file.filename);
+    }
+    console.log(product);
+
+    try {
+      await product.update();
+    } catch (err) {
+      return next(err);
+    }
+
+    return res.redirect('/admin/products');
+  }
 }
 
 module.exports = new AdminController();

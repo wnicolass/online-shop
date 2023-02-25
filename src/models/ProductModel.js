@@ -10,8 +10,7 @@ class Product {
     this.price = productData.price;
     this.description = productData.description;
     this.image = productData.image;
-    this.imagePath = `product-data/images/${productData.image}`;
-    this.imageUrl = `/products/assets/images/${productData.image}`;
+    this.updateImageData();
 
     if (productData._id) {
       this.id = productData._id.toString();
@@ -45,6 +44,37 @@ class Product {
     }
 
     return foundProduct;
+  }
+
+  async update() {
+    const productData = {
+      title: this.title,
+      summary: this.summary,
+      price: this.price,
+      description: this.description,
+      image: this.image,
+    };
+
+    if (!this.id) {
+      const error = new Error('The product need to have an ID.');
+      error.code = 400;
+      throw error;
+    }
+
+    if (!this.image) {
+      delete productData.image;
+    }
+    await ProductModel.findByIdAndUpdate(this.id, productData);
+  }
+
+  updateImageData() {
+    this.imagePath = `product-data/images/${this.image}`;
+    this.imageUrl = `/products/assets/images/${this.image}`;
+  }
+
+  async replaceImage(newImage) {
+    this.image = newImage;
+    this.updateImageData();
   }
 }
 
