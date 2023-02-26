@@ -61,6 +61,18 @@ class AdminController {
 
     return res.redirect('/admin/products');
   }
+
+  async deleteProduct(req, res, next) {
+    let product;
+    try {
+      product = await Product.findProductById(req.params.id);
+      await product.remove();
+    } catch (err) {
+      return next(err);
+    }
+
+    return res.redirect('/admin/products');
+  }
 }
 
 module.exports = new AdminController();

@@ -76,6 +76,16 @@ class Product {
     this.image = newImage;
     this.updateImageData();
   }
+
+  delete() {
+    if (!this.id) {
+      const error = new Error('The product need to have an ID.');
+      error.code = 400;
+      throw error;
+    }
+
+    return ProductModel.findOneAndDelete({ _id: this.id });
+  }
 }
 
 module.exports = Product;
