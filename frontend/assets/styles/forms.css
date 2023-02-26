@@ -20,9 +20,28 @@ textarea {
   border-radius: var(--border-radius-small);
   padding: var(--space-2);
 
-  width: 90%;
+  width: 100%;
 }
 
 input:focus {
   outline-color: var(--primary-color-200);
+}
+
+#image-upload-control {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+#image-upload-control input {
+  max-width: 15rem;
+}
+
+#image-upload-control img {
+  display: none;
+  width: 4rem;
+  height: 4rem;
+
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
 }

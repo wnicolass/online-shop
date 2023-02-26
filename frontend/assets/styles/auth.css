@@ -15,7 +15,7 @@ h1 {
 
   max-width: 25rem;
   margin: var(--space-8) auto;
-  padding-block: var(--space-2);
+  padding: var(--space-2) var(--space-6);
 
   border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-medium);
@@ -23,6 +23,7 @@ h1 {
 
 .form div {
   width: 100%;
+  text-align: left;
 }
 
 .form a {
