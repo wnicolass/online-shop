@@ -14,4 +14,6 @@ function updateImagePreview() {
   imagePreviewElement.style.display = 'block';
 }
 
-imagePicker.addEventListener('change', updateImagePreview);
+if (window.location.href === 'http://localhost:3000/admin/products/new') {
+  imagePicker.addEventListener('change', updateImagePreview);
+}
