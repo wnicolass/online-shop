@@ -14,6 +14,9 @@ function updateImagePreview() {
   imagePreviewElement.style.display = 'block';
 }
 
-if (window.location.href === 'http://localhost:3000/admin/products/new') {
+const currentPageURL = window.location.href;
+const baseURL = 'http://localhost:3000/admin/';
+const isOnEditView = currentPageURL.startsWith(`${baseURL}edit`);
+if (currentPageURL === `${baseURL}products/new` || isOnEditView) {
   imagePicker.addEventListener('change', updateImagePreview);
 }
