@@ -5,7 +5,8 @@ class AdminController {
   async getProducts(req, res, next) {
     try {
       const products = await Product.findAll();
-      return res.render('admin/products/all-products', { products });
+      const csrfToken = genToken(res, req);
+      return res.render('admin/products/all-products', { products, csrfToken });
     } catch (err) {
       return next(err);
     }
@@ -60,6 +61,18 @@ class AdminController {
     }
 
     return res.redirect('/admin/products');
+  }
+
+  async deleteProduct(req, res, next) {
+    let product;
+    try {
+      product = await Product.findProductById(req.params.id);
+      await product.remove();
+    } catch (err) {
+      return next(err);
+    }
+
+    return res.status(200).json('ok');
   }
 }
 

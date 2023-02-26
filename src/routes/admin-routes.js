@@ -11,5 +11,6 @@ router.get('/products/new', adminController.getNewProduct);
 router.post('/products', imageUpload, doubleCsrfProtection, adminController.createProduct);
 router.get('/products/:id', adminController.getUpdateProduct);
 router.post('/products/:id', imageUpload, doubleCsrfProtection, adminController.updateProduct);
+router.delete('/products/:id', doubleCsrfProtection, adminController.deleteProduct);
 
 module.exports = router;
