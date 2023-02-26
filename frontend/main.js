@@ -8,3 +8,4 @@ import './assets/styles/mobile-menu.css';
 import './assets/styles/responsive.css';
 import './assets/styles/products.css';
 import './assets/scripts/sidebar';
+import './assets/scripts/image-preview';
