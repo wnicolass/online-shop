@@ -9,6 +9,18 @@ class ProductController {
       return next(err);
     }
   }
+
+  async getProductDetails(req, res, next) {
+    const { id } = req.params;
+
+    try {
+      const product = await Product.findProductById(id);
+      console.log(product.imageUrl);
+      return res.render('customer/products/product-details', { product });
+    } catch (err) {
+      return next(err);
+    }
+  }
 }
 
 module.exports = new ProductController();

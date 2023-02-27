@@ -6,5 +6,6 @@ const productController = require('../controllers/ProductController');
 // const { doubleCsrfProtection } = doubleCsrf(options);
 
 router.get('/products', productController.getAllProducts);
+router.get('/products/:id', productController.getProductDetails);
 
 module.exports = router;
