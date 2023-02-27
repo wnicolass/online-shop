@@ -35,12 +35,12 @@ class Product {
   }
 
   static async findProductById(productId) {
-    const foundProduct = await ProductModel.findById(productId);
-
-    if (!foundProduct) {
-      const error = new Error('Could not find product with provided id.');
-      error.code = 404;
-      throw error;
+    let foundProduct;
+    try {
+      foundProduct = await ProductModel.findById(productId);
+    } catch (err) {
+      err.code = 404;
+      throw err;
     }
 
     return foundProduct;

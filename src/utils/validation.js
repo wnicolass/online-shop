@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-function areValidInputs(...inputs) {
+function areInputsEmpty(...inputs) {
   return inputs.some((input) => validator.isEmpty(input));
 }
 
@@ -13,7 +13,7 @@ function isValidUser(email, password) {
 function areUserDataValid({
   email, password, fullname: name, street, postal, city,
 }) {
-  return isValidUser(email, password) && !areValidInputs(name, street, postal, city);
+  return isValidUser(email, password) && !areInputsEmpty(name, street, postal, city);
 }
 
 function areEqualEmails({ email, confirmEmail }) {
@@ -23,4 +23,5 @@ function areEqualEmails({ email, confirmEmail }) {
 module.exports = {
   areUserDataValid,
   areEqualEmails,
+  areInputsEmpty,
 };

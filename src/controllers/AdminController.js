@@ -1,5 +1,6 @@
 const { genToken } = require('../utils/gen-token');
 const Product = require('../models/ProductModel');
+const { areInputsEmpty } = require('../utils/validation');
 
 class AdminController {
   async getProducts(req, res, next) {
@@ -19,6 +20,19 @@ class AdminController {
 
   async createProduct(req, res, next) {
     delete req.body.csrfToken;
+
+    const isDataValid = areInputsEmpty(
+      req.body.title,
+      req.body.summary,
+      req.body.price,
+      req.body.description,
+    );
+
+    if (isDataValid || !req.file) {
+      req.flash('error', 'Please. Fill in all fields');
+      return req.session.save(() => res.redirect('back'));
+    }
+
     const product = new Product({
       ...req.body,
       image: req.file.filename,
