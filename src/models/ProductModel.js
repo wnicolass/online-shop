@@ -43,7 +43,7 @@ class Product {
       throw err;
     }
 
-    return foundProduct;
+    return new Product(foundProduct);
   }
 
   async update() {
