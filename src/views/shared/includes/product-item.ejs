@@ -3,7 +3,7 @@
   <div class="product-item-content">
     <h2><%= product.title %></h2>
     <div class="product-item-actions">
-      <% if (locals.isAdmin) { %>
+      <% if (locals.isAdmin && locals.path.startsWith('/admin')) { %>
       <a href="/admin/edit/products/<%= product.id %>" class="btn btn-alt"
         >View & Edit</a
       >
