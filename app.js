@@ -11,6 +11,7 @@ const adminRoutes = require('./src/routes/admin-routes');
 const errorHandler = require('./src/middlewares/error-handler');
 const { checkUserAuthStatus } = require('./src/middlewares/check-auth');
 const enableFlashOnLocals = require('./src/middlewares/flash-messages');
+const protectRoutes = require('./src/middlewares/protect-routes');
 const createSessionConfig = require('./src/config/session');
 
 const sessionConfig = createSessionConfig();
@@ -33,14 +34,15 @@ class App {
     this.app.use(flash());
     this.app.use(checkUserAuthStatus);
     this.app.use(enableFlashOnLocals);
-    this.app.use(errorHandler);
   }
 
   routes() {
     this.app.use(baseRoutes);
     this.app.use(authRoutes);
     this.app.use(productRoutes);
+    this.app.use(protectRoutes);
     this.app.use('/admin', adminRoutes);
+    this.app.use(errorHandler);
   }
 }
 

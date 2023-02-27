@@ -1,6 +1,11 @@
-function handleServerError(error, req, res, next) {
-  console.log(error.message);
-  res.status(500).render('shared/500');
+function handleServerError(err, req, res, next) {
+  console.log(err.message);
+
+  if (err.code === 404) {
+    return res.status(404).render('shared/404');
+  }
+
+  return res.status(500).render('shared/500');
 }
 
 module.exports = handleServerError;

@@ -4,6 +4,7 @@
   <%- include('../../shared/includes/header.ejs') %>
   <main>
     <h1>Edit Product</h1>
+    <%- include('../../shared/includes/message.ejs') %>
     <%- include('./includes/product-form.ejs', { csrfToken, submitPath: `/admin/products/${product.id}`, product }) %>
   </main>
 <%- include('../../shared/includes/footer.ejs') %>
