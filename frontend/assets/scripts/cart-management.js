@@ -31,4 +31,6 @@ async function addToCart() {
   cartBadge.textContent = totalCartQuantity;
 }
 
-addToCartBtn.addEventListener('click', addToCart);
+if (window.location.href.startsWith('http://localhost:3000/products/')) {
+  addToCartBtn.addEventListener('click', addToCart);
+}

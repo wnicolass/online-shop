@@ -64,7 +64,9 @@ function _addToCart() {
   }));
   return _addToCart.apply(this, arguments);
 }
-addToCartBtn.addEventListener('click', addToCart);
+if (window.location.href.startsWith('http://localhost:3000/products/')) {
+  addToCartBtn.addEventListener('click', addToCart);
+}
 
 /***/ }),
 
