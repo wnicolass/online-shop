@@ -18,7 +18,7 @@ async function deleteProduct({ target }) {
       return alert('Something went wrong!');
     }
 
-    target.parentElement.parentElement.parentElement.parentElement.remove();
+    return target.closest('li').remove();
   } catch (err) {
     console.error(err.message);
   }

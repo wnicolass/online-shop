@@ -121,3 +121,11 @@ textarea {
   resize: none;
   outline-color: var(--primary-color-200);
 }
+
+.badge {
+  margin-left: var(--space-2);
+  padding: 0.15rem var(--space-4);
+  border-radius: 10rem;
+  background-color: var(--primary-color-500-contrast);
+  color: var(--primary-color-500);
+}

@@ -8,10 +8,12 @@ const authRoutes = require('./src/routes/auth-routes');
 const baseRoutes = require('./src/routes/base-routes');
 const productRoutes = require('./src/routes/product-routes');
 const adminRoutes = require('./src/routes/admin-routes');
+const cartRoutes = require('./src/routes/cart-routes');
 const errorHandler = require('./src/middlewares/error-handler');
 const { checkUserAuthStatus } = require('./src/middlewares/check-auth');
 const enableFlashOnLocals = require('./src/middlewares/flash-messages');
 const protectRoutes = require('./src/middlewares/protect-routes');
+const initializeCart = require('./src/middlewares/cart');
 const createSessionConfig = require('./src/config/session');
 
 const sessionConfig = createSessionConfig();
@@ -29,17 +31,20 @@ class App {
     this.app.use(express.static(path.resolve(__dirname, 'public')));
     this.app.use('/products/assets', express.static('product-data'));
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(express.json());
     this.app.use(session(sessionConfig));
     this.app.use(cookieParser(process.env.COOKIE_SECRET));
     this.app.use(flash());
     this.app.use(checkUserAuthStatus);
     this.app.use(enableFlashOnLocals);
+    this.app.use(initializeCart);
   }
 
   routes() {
     this.app.use(baseRoutes);
     this.app.use(authRoutes);
     this.app.use(productRoutes);
+    this.app.use('/cart', cartRoutes);
     this.app.use(protectRoutes);
     this.app.use('/admin', adminRoutes);
     this.app.use(errorHandler);
