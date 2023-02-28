@@ -12,6 +12,7 @@ const errorHandler = require('./src/middlewares/error-handler');
 const { checkUserAuthStatus } = require('./src/middlewares/check-auth');
 const enableFlashOnLocals = require('./src/middlewares/flash-messages');
 const protectRoutes = require('./src/middlewares/protect-routes');
+const initializeCart = require('./src/middlewares/cart');
 const createSessionConfig = require('./src/config/session');
 
 const sessionConfig = createSessionConfig();
@@ -34,6 +35,7 @@ class App {
     this.app.use(flash());
     this.app.use(checkUserAuthStatus);
     this.app.use(enableFlashOnLocals);
+    this.app.use(initializeCart);
   }
 
   routes() {
