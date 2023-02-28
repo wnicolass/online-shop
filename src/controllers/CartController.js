@@ -2,10 +2,10 @@ const Product = require('../models/ProductModel');
 
 class CartController {
   async addCartItem(req, res, next) {
-    const { id } = req.params;
+    const { productId } = req.body;
     let product;
     try {
-      product = await Product.findProductById(id);
+      product = await Product.findProductById(productId);
     } catch (err) {
       return next(err);
     }
@@ -14,7 +14,7 @@ class CartController {
     cart.addItem(product);
     req.session.cart = cart;
 
-    res.status(201).json({
+    return res.status(201).json({
       message: 'Cart updated!',
       newTotalItems: cart.totalQuantity,
     });

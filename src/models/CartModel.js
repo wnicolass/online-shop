@@ -6,7 +6,18 @@ class Cart {
   }
 
   addItem(product) {
-    const cartItem = { product, quantity: 1, totalPrice: product.price };
+    const cartItem = {
+      product,
+      quantity: 1,
+      totalPrice: product.price,
+    };
+
+    this.items.forEach((item) => {
+      if (item.product.id === product.id) {
+        cartItem.quantity = item.quantity;
+        cartItem.totalPrice = item.totalPrice;
+      }
+    });
 
     if (this.items.length > 0) {
       for (let i = 0; i < this.items.length; i += 1) {
@@ -22,7 +33,6 @@ class Cart {
         }
       }
     }
-
     this.items.push(cartItem);
     this.totalQuantity += 1;
     this.totalPrice += product.price;
