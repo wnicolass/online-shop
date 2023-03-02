@@ -15,7 +15,6 @@ class ProductController {
 
     try {
       const product = await Product.findProductById(id);
-      console.log(product.imageUrl);
       return res.render('customer/products/product-details', { product });
     } catch (err) {
       return next(err);

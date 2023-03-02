@@ -1,6 +1,108 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./frontend/assets/scripts/cart-item-management.js":
+/*!*********************************************************!*\
+  !*** ./frontend/assets/scripts/cart-item-management.js ***!
+  \*********************************************************/
+/***/ (() => {
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var cartItemsUpdateForm = document.querySelectorAll('.cart-item-management');
+var cartTotalPrice = document.getElementById('cart-total-price');
+var cartBadges = document.querySelectorAll('.nav-items .badge');
+function fetchCartData(_x) {
+  return _fetchCartData.apply(this, arguments);
+}
+function _fetchCartData() {
+  _fetchCartData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var form, productId, quantity, res, data;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          form = _ref.target;
+          productId = form.dataset.productid;
+          quantity = form.firstElementChild.value;
+          _context.prev = 3;
+          _context.next = 6;
+          return fetch('/cart/items', {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              productId: productId,
+              quantity: quantity
+            })
+          });
+        case 6:
+          res = _context.sent;
+          if (res.ok) {
+            _context.next = 10;
+            break;
+          }
+          alert('Something went wrong');
+          return _context.abrupt("return");
+        case 10:
+          _context.next = 12;
+          return res.json();
+        case 12:
+          data = _context.sent;
+          return _context.abrupt("return", data);
+        case 16:
+          _context.prev = 16;
+          _context.t0 = _context["catch"](3);
+          alert('Something went wrong');
+        case 19:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee, null, [[3, 16]]);
+  }));
+  return _fetchCartData.apply(this, arguments);
+}
+function updateCartItem(_x2) {
+  return _updateCartItem.apply(this, arguments);
+}
+function _updateCartItem() {
+  _updateCartItem = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(event) {
+    var resData, _resData$updatedCartD, newTotalQuantity, newTotalPrice, updatedProductPrice, cartItemPriceElement;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          event.preventDefault();
+          _context2.next = 3;
+          return fetchCartData(event);
+        case 3:
+          resData = _context2.sent;
+          _resData$updatedCartD = resData.updatedCartData, newTotalQuantity = _resData$updatedCartD.newTotalQuantity, newTotalPrice = _resData$updatedCartD.newTotalPrice, updatedProductPrice = _resData$updatedCartD.updatedProductPrice;
+          if (updatedProductPrice === 0) {
+            event.target.closest('li').remove();
+          } else {
+            cartItemPriceElement = event.target.parentElement.querySelector('.cart-item-price');
+            cartItemPriceElement.textContent = updatedProductPrice.toFixed(2);
+          }
+          cartTotalPrice.textContent = newTotalPrice.toFixed(2);
+          cartBadges.forEach(function (badge) {
+            badge.textContent = newTotalQuantity;
+          });
+        case 8:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2);
+  }));
+  return _updateCartItem.apply(this, arguments);
+}
+cartItemsUpdateForm.forEach(function (form) {
+  return form.addEventListener('submit', updateCartItem);
+});
+
+/***/ }),
+
 /***/ "./frontend/assets/scripts/cart-management.js":
 /*!****************************************************!*\
   !*** ./frontend/assets/scripts/cart-management.js ***!
@@ -20135,7 +20237,34 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ------ CUSTOM PROPERTIES ------ */\n:root {\n  --color-gray-50: rgb(230, 234, 238);\n  --color-gray-100: rgb(195, 202, 207);\n  --color-gray-300: rgb(86, 92, 99);\n  --color-gray-400: rgb(60, 65, 70);\n\n  --primary-color-50: rgb(200, 231, 253);\n  --primary-color-100: rgb(183, 213, 253);\n  --primary-color-200: rgb(143, 186, 250);\n  --primary-color-400: rgb(58 105 192);\n  --primary-color-500: rgb(14, 90, 212);\n  --primary-color-700: rgb(35, 61, 109);\n  --primary-color-200-contrast: rgb(2, 35, 100);\n  --primary-color-500-contrast: white;\n\n  --color-error-100: rgb(255, 192, 180);\n  --color-error-500: rgb(199, 51, 15);\n\n  --space-1: 0.25rem;\n  --space-2: 0.5rem;\n  --space-4: 1rem;\n  --space-6: 1.5rem;\n  --space-8: 2rem;\n\n  --border-radius-small: 4px;\n  --border-radius-medium: 6px;\n  --border-radius-large: 15px;\n\n  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n\n/* ------ GENERAL ------ */\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background: var(--color-gray-50);\n  color: var(--color-gray-400);\n  font-family: 'Montserrat', sans-serif;\n  overflow-x: hidden;\n}\n\nmain {\n  width: min(50rem, 90%);\n  margin: var(--space-4) auto 0 auto;\n}\n\nul,\nol {\n  list-style: none;\n}\n\na {\n  text-decoration: none;\n  color: var(--primary-color-400);\n}\n\n.btn {\n  font: inherit;\n  color: var(--primary-color-500-contrast);\n  background-color: var(--primary-color-500);\n\n  border: 1px solid var(--primary-color-200);\n  border-radius: var(--border-radius-small);\n  padding: var(--space-1) var(--space-4);\n\n  cursor: pointer;\n\n  transition: all 0.3s ease;\n}\n\n.btn-alt {\n  background-color: transparent;\n  color: var(--primary-color-500);\n}\n\n.btn:hover {\n  background-color: var(--primary-color-700);\n  border-color: var(--primary-color-700);\n}\n\n.btn-alt:hover {\n  color: var(--primary-color-500-contrast);\n}\n\n.btn:active {\n  transform: scale(0.98);\n}\n\n.alert {\n  border-radius: var(--border-radius-small);\n  background-color: var(--color-error-100);\n  color: var(--color-error-500);\n\n  padding: var(--space-4);\n  margin-top: var(--space-4);\n\n  width: fit-content;\n  position: relative;\n  left: 50%;\n  transform: translateX(-50%);\n}\n\n.alert h2 {\n  font-size: 1rem;\n  margin: var(--space-2) 0;\n  text-transform: uppercase;\n}\n\n.alert p {\n  margin: var(--space-2) 0;\n}\n\ntextarea {\n  resize: none;\n  outline-color: var(--primary-color-200);\n}\n\n.badge {\n  margin-left: var(--space-2);\n  padding: 0.15rem var(--space-4);\n  border-radius: 10rem;\n  background-color: var(--primary-color-500-contrast);\n  color: var(--primary-color-500);\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/base.css"],"names":[],"mappings":"AAEA,oCAAoC;AACpC;EACE,mCAAmC;EACnC,oCAAoC;EACpC,iCAAiC;EACjC,iCAAiC;;EAEjC,sCAAsC;EACtC,uCAAuC;EACvC,uCAAuC;EACvC,oCAAoC;EACpC,qCAAqC;EACrC,qCAAqC;EACrC,6CAA6C;EAC7C,mCAAmC;;EAEnC,qCAAqC;EACrC,mCAAmC;;EAEnC,kBAAkB;EAClB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,eAAe;;EAEf,0BAA0B;EAC1B,2BAA2B;EAC3B,2BAA2B;;EAE3B,6CAA6C;AAC/C;;AAEA,0BAA0B;AAC1B;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,gCAAgC;EAChC,4BAA4B;EAC5B,qCAAqC;EACrC,kBAAkB;AACpB;;AAEA;EACE,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;;EAEE,gBAAgB;AAClB;;AAEA;EACE,qBAAqB;EACrB,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,wCAAwC;EACxC,0CAA0C;;EAE1C,0CAA0C;EAC1C,yCAAyC;EACzC,sCAAsC;;EAEtC,eAAe;;EAEf,yBAAyB;AAC3B;;AAEA;EACE,6BAA6B;EAC7B,+BAA+B;AACjC;;AAEA;EACE,0CAA0C;EAC1C,sCAAsC;AACxC;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,yCAAyC;EACzC,wCAAwC;EACxC,6BAA6B;;EAE7B,uBAAuB;EACvB,0BAA0B;;EAE1B,kBAAkB;EAClB,kBAAkB;EAClB,SAAS;EACT,2BAA2B;AAC7B;;AAEA;EACE,eAAe;EACf,wBAAwB;EACxB,yBAAyB;AAC3B;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,YAAY;EACZ,uCAAuC;AACzC;;AAEA;EACE,2BAA2B;EAC3B,+BAA+B;EAC/B,oBAAoB;EACpB,mDAAmD;EACnD,+BAA+B;AACjC","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');\n\n/* ------ CUSTOM PROPERTIES ------ */\n:root {\n  --color-gray-50: rgb(230, 234, 238);\n  --color-gray-100: rgb(195, 202, 207);\n  --color-gray-300: rgb(86, 92, 99);\n  --color-gray-400: rgb(60, 65, 70);\n\n  --primary-color-50: rgb(200, 231, 253);\n  --primary-color-100: rgb(183, 213, 253);\n  --primary-color-200: rgb(143, 186, 250);\n  --primary-color-400: rgb(58 105 192);\n  --primary-color-500: rgb(14, 90, 212);\n  --primary-color-700: rgb(35, 61, 109);\n  --primary-color-200-contrast: rgb(2, 35, 100);\n  --primary-color-500-contrast: white;\n\n  --color-error-100: rgb(255, 192, 180);\n  --color-error-500: rgb(199, 51, 15);\n\n  --space-1: 0.25rem;\n  --space-2: 0.5rem;\n  --space-4: 1rem;\n  --space-6: 1.5rem;\n  --space-8: 2rem;\n\n  --border-radius-small: 4px;\n  --border-radius-medium: 6px;\n  --border-radius-large: 15px;\n\n  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n\n/* ------ GENERAL ------ */\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background: var(--color-gray-50);\n  color: var(--color-gray-400);\n  font-family: 'Montserrat', sans-serif;\n  overflow-x: hidden;\n}\n\nmain {\n  width: min(50rem, 90%);\n  margin: var(--space-4) auto 0 auto;\n}\n\nul,\nol {\n  list-style: none;\n}\n\na {\n  text-decoration: none;\n  color: var(--primary-color-400);\n}\n\n.btn {\n  font: inherit;\n  color: var(--primary-color-500-contrast);\n  background-color: var(--primary-color-500);\n\n  border: 1px solid var(--primary-color-200);\n  border-radius: var(--border-radius-small);\n  padding: var(--space-1) var(--space-4);\n\n  cursor: pointer;\n\n  transition: all 0.3s ease;\n}\n\n.btn-alt {\n  background-color: transparent;\n  color: var(--primary-color-500);\n}\n\n.btn:hover {\n  background-color: var(--primary-color-700);\n  border-color: var(--primary-color-700);\n}\n\n.btn-alt:hover {\n  color: var(--primary-color-500-contrast);\n}\n\n.btn:active {\n  transform: scale(0.98);\n}\n\n.alert {\n  border-radius: var(--border-radius-small);\n  background-color: var(--color-error-100);\n  color: var(--color-error-500);\n\n  padding: var(--space-4);\n  margin-top: var(--space-4);\n\n  width: fit-content;\n  position: relative;\n  left: 50%;\n  transform: translateX(-50%);\n}\n\n.alert h2 {\n  font-size: 1rem;\n  margin: var(--space-2) 0;\n  text-transform: uppercase;\n}\n\n.alert p {\n  margin: var(--space-2) 0;\n}\n\ntextarea {\n  resize: none;\n  outline-color: var(--primary-color-200);\n}\n\n.badge {\n  margin-left: var(--space-2);\n  padding: 0.15rem var(--space-4);\n  border-radius: 10rem;\n  background-color: var(--primary-color-500-contrast);\n  color: var(--primary-color-500);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ------ CUSTOM PROPERTIES ------ */\r\n:root {\r\n  --color-gray-50: rgb(230, 234, 238);\r\n  --color-gray-100: rgb(195, 202, 207);\r\n  --color-gray-300: rgb(86, 92, 99);\r\n  --color-gray-400: rgb(60, 65, 70);\r\n\r\n  --primary-color-50: rgb(200, 231, 253);\r\n  --primary-color-100: rgb(183, 213, 253);\r\n  --primary-color-200: rgb(143, 186, 250);\r\n  --primary-color-400: rgb(58 105 192);\r\n  --primary-color-500: rgb(14, 90, 212);\r\n  --primary-color-700: rgb(35, 61, 109);\r\n  --primary-color-200-contrast: rgb(2, 35, 100);\r\n  --primary-color-500-contrast: white;\r\n\r\n  --color-error-100: rgb(255, 192, 180);\r\n  --color-error-500: rgb(199, 51, 15);\r\n\r\n  --space-1: 0.25rem;\r\n  --space-2: 0.5rem;\r\n  --space-4: 1rem;\r\n  --space-6: 1.5rem;\r\n  --space-8: 2rem;\r\n\r\n  --border-radius-small: 4px;\r\n  --border-radius-medium: 6px;\r\n  --border-radius-large: 15px;\r\n\r\n  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n/* ------ GENERAL ------ */\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nbody {\r\n  background: var(--color-gray-50);\r\n  color: var(--color-gray-400);\r\n  font-family: 'Montserrat', sans-serif;\r\n  overflow-x: hidden;\r\n}\r\n\r\nmain {\r\n  width: min(50rem, 90%);\r\n  margin: var(--space-4) auto 0 auto;\r\n}\r\n\r\nul,\r\nol {\r\n  list-style: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: var(--primary-color-400);\r\n}\r\n\r\n.btn {\r\n  font: inherit;\r\n  color: var(--primary-color-500-contrast);\r\n  background-color: var(--primary-color-500);\r\n\r\n  border: 1px solid var(--primary-color-200);\r\n  border-radius: var(--border-radius-small);\r\n  padding: var(--space-1) var(--space-4);\r\n\r\n  cursor: pointer;\r\n\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.btn-alt {\r\n  background-color: transparent;\r\n  color: var(--primary-color-500);\r\n}\r\n\r\n.btn:hover {\r\n  background-color: var(--primary-color-700);\r\n  border-color: var(--primary-color-700);\r\n}\r\n\r\n.btn-alt:hover {\r\n  color: var(--primary-color-500-contrast);\r\n}\r\n\r\n.btn:active {\r\n  transform: scale(0.98);\r\n}\r\n\r\n.alert {\r\n  border-radius: var(--border-radius-small);\r\n  background-color: var(--color-error-100);\r\n  color: var(--color-error-500);\r\n\r\n  padding: var(--space-4);\r\n  margin-top: var(--space-4);\r\n\r\n  width: fit-content;\r\n  position: relative;\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n}\r\n\r\n.alert h2 {\r\n  font-size: 1rem;\r\n  margin: var(--space-2) 0;\r\n  text-transform: uppercase;\r\n}\r\n\r\n.alert p {\r\n  margin: var(--space-2) 0;\r\n}\r\n\r\ntextarea {\r\n  resize: none;\r\n  outline-color: var(--primary-color-200);\r\n}\r\n\r\n.badge {\r\n  margin-left: var(--space-2);\r\n  padding: 0.15rem var(--space-4);\r\n  border-radius: 10rem;\r\n  background-color: var(--primary-color-500-contrast);\r\n  color: var(--primary-color-500);\r\n}\r\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/base.css"],"names":[],"mappings":"AAEA,oCAAoC;AACpC;EACE,mCAAmC;EACnC,oCAAoC;EACpC,iCAAiC;EACjC,iCAAiC;;EAEjC,sCAAsC;EACtC,uCAAuC;EACvC,uCAAuC;EACvC,oCAAoC;EACpC,qCAAqC;EACrC,qCAAqC;EACrC,6CAA6C;EAC7C,mCAAmC;;EAEnC,qCAAqC;EACrC,mCAAmC;;EAEnC,kBAAkB;EAClB,iBAAiB;EACjB,eAAe;EACf,iBAAiB;EACjB,eAAe;;EAEf,0BAA0B;EAC1B,2BAA2B;EAC3B,2BAA2B;;EAE3B,6CAA6C;AAC/C;;AAEA,0BAA0B;AAC1B;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,gCAAgC;EAChC,4BAA4B;EAC5B,qCAAqC;EACrC,kBAAkB;AACpB;;AAEA;EACE,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;;EAEE,gBAAgB;AAClB;;AAEA;EACE,qBAAqB;EACrB,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,wCAAwC;EACxC,0CAA0C;;EAE1C,0CAA0C;EAC1C,yCAAyC;EACzC,sCAAsC;;EAEtC,eAAe;;EAEf,yBAAyB;AAC3B;;AAEA;EACE,6BAA6B;EAC7B,+BAA+B;AACjC;;AAEA;EACE,0CAA0C;EAC1C,sCAAsC;AACxC;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,yCAAyC;EACzC,wCAAwC;EACxC,6BAA6B;;EAE7B,uBAAuB;EACvB,0BAA0B;;EAE1B,kBAAkB;EAClB,kBAAkB;EAClB,SAAS;EACT,2BAA2B;AAC7B;;AAEA;EACE,eAAe;EACf,wBAAwB;EACxB,yBAAyB;AAC3B;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,YAAY;EACZ,uCAAuC;AACzC;;AAEA;EACE,2BAA2B;EAC3B,+BAA+B;EAC/B,oBAAoB;EACpB,mDAAmD;EACnD,+BAA+B;AACjC","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');\r\n\r\n/* ------ CUSTOM PROPERTIES ------ */\r\n:root {\r\n  --color-gray-50: rgb(230, 234, 238);\r\n  --color-gray-100: rgb(195, 202, 207);\r\n  --color-gray-300: rgb(86, 92, 99);\r\n  --color-gray-400: rgb(60, 65, 70);\r\n\r\n  --primary-color-50: rgb(200, 231, 253);\r\n  --primary-color-100: rgb(183, 213, 253);\r\n  --primary-color-200: rgb(143, 186, 250);\r\n  --primary-color-400: rgb(58 105 192);\r\n  --primary-color-500: rgb(14, 90, 212);\r\n  --primary-color-700: rgb(35, 61, 109);\r\n  --primary-color-200-contrast: rgb(2, 35, 100);\r\n  --primary-color-500-contrast: white;\r\n\r\n  --color-error-100: rgb(255, 192, 180);\r\n  --color-error-500: rgb(199, 51, 15);\r\n\r\n  --space-1: 0.25rem;\r\n  --space-2: 0.5rem;\r\n  --space-4: 1rem;\r\n  --space-6: 1.5rem;\r\n  --space-8: 2rem;\r\n\r\n  --border-radius-small: 4px;\r\n  --border-radius-medium: 6px;\r\n  --border-radius-large: 15px;\r\n\r\n  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n/* ------ GENERAL ------ */\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nbody {\r\n  background: var(--color-gray-50);\r\n  color: var(--color-gray-400);\r\n  font-family: 'Montserrat', sans-serif;\r\n  overflow-x: hidden;\r\n}\r\n\r\nmain {\r\n  width: min(50rem, 90%);\r\n  margin: var(--space-4) auto 0 auto;\r\n}\r\n\r\nul,\r\nol {\r\n  list-style: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: var(--primary-color-400);\r\n}\r\n\r\n.btn {\r\n  font: inherit;\r\n  color: var(--primary-color-500-contrast);\r\n  background-color: var(--primary-color-500);\r\n\r\n  border: 1px solid var(--primary-color-200);\r\n  border-radius: var(--border-radius-small);\r\n  padding: var(--space-1) var(--space-4);\r\n\r\n  cursor: pointer;\r\n\r\n  transition: all 0.3s ease;\r\n}\r\n\r\n.btn-alt {\r\n  background-color: transparent;\r\n  color: var(--primary-color-500);\r\n}\r\n\r\n.btn:hover {\r\n  background-color: var(--primary-color-700);\r\n  border-color: var(--primary-color-700);\r\n}\r\n\r\n.btn-alt:hover {\r\n  color: var(--primary-color-500-contrast);\r\n}\r\n\r\n.btn:active {\r\n  transform: scale(0.98);\r\n}\r\n\r\n.alert {\r\n  border-radius: var(--border-radius-small);\r\n  background-color: var(--color-error-100);\r\n  color: var(--color-error-500);\r\n\r\n  padding: var(--space-4);\r\n  margin-top: var(--space-4);\r\n\r\n  width: fit-content;\r\n  position: relative;\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n}\r\n\r\n.alert h2 {\r\n  font-size: 1rem;\r\n  margin: var(--space-2) 0;\r\n  text-transform: uppercase;\r\n}\r\n\r\n.alert p {\r\n  margin: var(--space-2) 0;\r\n}\r\n\r\ntextarea {\r\n  resize: none;\r\n  outline-color: var(--primary-color-200);\r\n}\r\n\r\n.badge {\r\n  margin-left: var(--space-2);\r\n  padding: 0.15rem var(--space-4);\r\n  border-radius: 10rem;\r\n  background-color: var(--primary-color-500-contrast);\r\n  color: var(--primary-color-500);\r\n}\r\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/cart.css":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/cart.css ***!
+  \*******************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/cart.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,uCAAuC;;EAEvC,wBAAwB;EACxB,uBAAuB;EACvB,0CAA0C;AAC5C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,+BAA+B;AACjC;;AAEA;EACE;IACE,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;EACrB;;EAEA;IACE,8BAA8B;IAC9B,WAAW;EACb;;EAEA;IACE,UAAU;EACZ;;EAEA;IACE,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;IACnB,mBAAmB;EACrB;AACF","sourcesContent":[".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21279,6 +21408,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./frontend/assets/styles/cart.css":
+/*!*****************************************!*\
+  !*** ./frontend/assets/styles/cart.css ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_cart_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./cart.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/assets/styles/cart.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_cart_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_cart_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_cart_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_cart_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./frontend/assets/styles/forms.css":
 /*!******************************************!*\
   !*** ./frontend/assets/styles/forms.css ***!
@@ -21970,14 +22154,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_styles_mobile_menu_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/styles/mobile-menu.css */ "./frontend/assets/styles/mobile-menu.css");
 /* harmony import */ var _assets_styles_responsive_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./assets/styles/responsive.css */ "./frontend/assets/styles/responsive.css");
 /* harmony import */ var _assets_styles_products_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./assets/styles/products.css */ "./frontend/assets/styles/products.css");
-/* harmony import */ var _assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./assets/scripts/sidebar */ "./frontend/assets/scripts/sidebar.js");
-/* harmony import */ var _assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./assets/scripts/product-management */ "./frontend/assets/scripts/product-management.js");
-/* harmony import */ var _assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./assets/scripts/image-preview */ "./frontend/assets/scripts/image-preview.js");
-/* harmony import */ var _assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./assets/scripts/cart-management */ "./frontend/assets/scripts/cart-management.js");
-/* harmony import */ var _assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _assets_styles_cart_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./assets/styles/cart.css */ "./frontend/assets/styles/cart.css");
+/* harmony import */ var _assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./assets/scripts/sidebar */ "./frontend/assets/scripts/sidebar.js");
+/* harmony import */ var _assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_sidebar__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./assets/scripts/product-management */ "./frontend/assets/scripts/product-management.js");
+/* harmony import */ var _assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_product_management__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./assets/scripts/image-preview */ "./frontend/assets/scripts/image-preview.js");
+/* harmony import */ var _assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_image_preview__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./assets/scripts/cart-management */ "./frontend/assets/scripts/cart-management.js");
+/* harmony import */ var _assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_cart_management__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _assets_scripts_cart_item_management__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./assets/scripts/cart-item-management */ "./frontend/assets/scripts/cart-item-management.js");
+/* harmony import */ var _assets_scripts_cart_item_management__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_assets_scripts_cart_item_management__WEBPACK_IMPORTED_MODULE_14__);
+
+
 
 
 
