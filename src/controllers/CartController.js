@@ -19,6 +19,10 @@ class CartController {
       newTotalItems: cart.totalQuantity,
     });
   }
+
+  getCart(req, res) {
+    res.render('customer/cart/cart');
+  }
 }
 
 module.exports = new CartController();
