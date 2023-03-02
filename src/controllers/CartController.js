@@ -23,6 +23,22 @@ class CartController {
   getCart(req, res) {
     res.render('customer/cart/cart');
   }
+
+  updateCartItem(req, res) {
+    const { cart } = res.locals;
+    const { productId, quantity } = req.body;
+    const updatedItemData = cart.updateItem(productId, quantity);
+    req.session.cart = cart;
+
+    res.status().json({
+      message: 'Item updated!',
+      updatedCartData: {
+        newTotalQuantity: cart.totalQuantity,
+        newTotalPrice: cart.totalPrice,
+        updatedProductPrice: updatedItemData.updatedItemPrice,
+      },
+    });
+  }
 }
 
 module.exports = new CartController();
