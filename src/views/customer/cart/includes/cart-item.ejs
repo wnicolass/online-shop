@@ -13,6 +13,7 @@
   <form
     class="cart-item-management"
     data-productid="<%= cartItem.product.id %>"
+    data-csrftoken="<%= csrfToken %>"
   >
     <input type="number" value="<%= cartItem.quantity %>" required />
     <button class="btn btn-alt">Update</button>

@@ -19,48 +19,50 @@ function fetchCartData(_x) {
 }
 function _fetchCartData() {
   _fetchCartData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
-    var form, productId, quantity, res, data;
+    var form, productId, token, quantity, res, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           form = _ref.target;
           productId = form.dataset.productid;
+          token = form.dataset.csrftoken;
           quantity = form.firstElementChild.value;
-          _context.prev = 3;
-          _context.next = 6;
+          _context.prev = 4;
+          _context.next = 7;
           return fetch('/cart/items', {
             method: 'PATCH',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'x-csrf-token': token
             },
             body: JSON.stringify({
               productId: productId,
               quantity: quantity
             })
           });
-        case 6:
+        case 7:
           res = _context.sent;
           if (res.ok) {
-            _context.next = 10;
+            _context.next = 11;
             break;
           }
           alert('Something went wrong');
           return _context.abrupt("return");
-        case 10:
-          _context.next = 12;
+        case 11:
+          _context.next = 13;
           return res.json();
-        case 12:
+        case 13:
           data = _context.sent;
           return _context.abrupt("return", data);
-        case 16:
-          _context.prev = 16;
-          _context.t0 = _context["catch"](3);
+        case 17:
+          _context.prev = 17;
+          _context.t0 = _context["catch"](4);
           alert('Something went wrong');
-        case 19:
+        case 20:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[3, 16]]);
+    }, _callee, null, [[4, 17]]);
   }));
   return _fetchCartData.apply(this, arguments);
 }
@@ -120,49 +122,51 @@ function addToCart() {
 }
 function _addToCart() {
   _addToCart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var productId, res, resData, totalCartQuantity;
+    var productId, token, res, resData, totalCartQuantity;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           productId = addToCartBtn.dataset.productid;
-          _context.prev = 1;
-          _context.next = 4;
+          token = addToCartBtn.dataset.csrftoken;
+          _context.prev = 2;
+          _context.next = 5;
           return fetch('/cart/items', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'x-csrf-token': token
             },
             body: JSON.stringify({
               productId: productId
             })
           });
-        case 4:
+        case 5:
           res = _context.sent;
-          _context.next = 10;
+          _context.next = 11;
           break;
-        case 7:
-          _context.prev = 7;
-          _context.t0 = _context["catch"](1);
+        case 8:
+          _context.prev = 8;
+          _context.t0 = _context["catch"](2);
           return _context.abrupt("return", alert('Something went wrong!'));
-        case 10:
+        case 11:
           if (res.ok) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
           return _context.abrupt("return", alert('Something went wrong!'));
-        case 12:
-          _context.next = 14;
+        case 13:
+          _context.next = 15;
           return res.json();
-        case 14:
+        case 15:
           resData = _context.sent;
           console.log(resData);
           totalCartQuantity = resData.newTotalItems;
           cartBadge.textContent = totalCartQuantity;
-        case 18:
+        case 19:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[1, 7]]);
+    }, _callee, null, [[2, 8]]);
   }));
   return _addToCart.apply(this, arguments);
 }
@@ -20264,7 +20268,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/cart.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,uCAAuC;;EAEvC,wBAAwB;EACxB,uBAAuB;EACvB,0CAA0C;AAC5C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,+BAA+B;AACjC;;AAEA;EACE;IACE,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;EACrB;;EAEA;IACE,8BAA8B;IAC9B,WAAW;EACb;;EAEA;IACE,UAAU;EACZ;;EAEA;IACE,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;IACnB,mBAAmB;EACrB;AACF","sourcesContent":[".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n#cart-total #cart-total-fallback {\n  font-size: 1rem;\n  font-weight: 400;\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n", "",{"version":3,"sources":["webpack://./frontend/assets/styles/cart.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,uCAAuC;;EAEvC,wBAAwB;EACxB,uBAAuB;EACvB,0CAA0C;AAC5C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,+BAA+B;AACjC;;AAEA;EACE,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE;IACE,sBAAsB;IACtB,kBAAkB;IAClB,mBAAmB;EACrB;;EAEA;IACE,8BAA8B;IAC9B,WAAW;EACb;;EAEA;IACE,UAAU;EACZ;;EAEA;IACE,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;IACnB,mBAAmB;EACrB;AACF","sourcesContent":[".cart-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: var(--color-gray-100);\n\n  margin: var(--space-4) 0;\n  padding: var(--space-4);\n  border-radius: var(--border-radius-medium);\n}\n\n.cart-item h2 {\n  font-size: 1rem;\n}\n\n.cart-item-management {\n  display: flex;\n  gap: var(--space-4);\n}\n\n.cart-product-price {\n  font-style: italic;\n  color: var(--primary-color-400);\n}\n\n#cart-total {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n#cart-total p {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--primary-color-500);\n}\n\n#cart-total #cart-total-fallback {\n  font-size: 1rem;\n  font-weight: 400;\n}\n\n@media screen and (max-width: 48rem) {\n  .cart-item {\n    flex-direction: column;\n    align-items: start;\n    gap: var(--space-4);\n  }\n\n  .cart-item-management {\n    justify-content: space-between;\n    width: 100%;\n  }\n\n  .cart-item-management input {\n    width: 50%;\n  }\n\n  #cart-total {\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    gap: var(--space-2);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

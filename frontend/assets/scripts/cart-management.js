@@ -3,12 +3,14 @@ const cartBadge = document.querySelector('.nav-items .badge');
 
 async function addToCart() {
   const productId = addToCartBtn.dataset.productid;
+  const token = addToCartBtn.dataset.csrftoken;
   let res;
   try {
     res = await fetch('/cart/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'x-csrf-token': token,
       },
       body: JSON.stringify({
         productId,
