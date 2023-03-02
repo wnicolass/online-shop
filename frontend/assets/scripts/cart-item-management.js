@@ -2,14 +2,11 @@ const cartItemsUpdateForm = document.querySelectorAll('.cart-item-management');
 const cartTotalPrice = document.getElementById('cart-total-price');
 const cartBadges = document.querySelectorAll('.nav-items .badge');
 
-async function updateCartItem(event) {
-  event.preventDefault();
-  const { target: form } = event;
+async function fetchCartData({ target: form }) {
   const productId = form.dataset.productid;
   const quantity = form.firstElementChild.value;
-  let res;
   try {
-    res = await fetch('/cart/items', {
+    const res = await fetch('/cart/items', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -18,23 +15,28 @@ async function updateCartItem(event) {
         productId, quantity,
       }),
     });
+
+    if (!res.ok) {
+      alert('Something went wrong');
+      return;
+    }
+
+    const data = await res.json();
+    return data;
   } catch (err) {
-    // eslint-disable-next-line no-alert
     alert('Something went wrong');
-    return;
   }
+}
 
-  if (!res.ok) {
-    alert('Something went wrong');
-    return;
-  }
+async function updateCartItem(event) {
+  event.preventDefault();
+  const resData = await fetchCartData(event);
 
-  const resData = await res.json();
   const { newTotalQuantity, newTotalPrice, updatedProductPrice } = resData.updatedCartData;
   if (updatedProductPrice === 0) {
-    form.closest('li').remove();
+    event.target.closest('li').remove();
   } else {
-    const cartItemPriceElement = form.parentElement.querySelector('.cart-item-price');
+    const cartItemPriceElement = event.target.parentElement.querySelector('.cart-item-price');
     cartItemPriceElement.textContent = updatedProductPrice.toFixed(2);
   }
   cartTotalPrice.textContent = newTotalPrice.toFixed(2);

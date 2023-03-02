@@ -14,21 +14,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var cartItemsUpdateForm = document.querySelectorAll('.cart-item-management');
 var cartTotalPrice = document.getElementById('cart-total-price');
 var cartBadges = document.querySelectorAll('.nav-items .badge');
-function updateCartItem(_x) {
-  return _updateCartItem.apply(this, arguments);
+function fetchCartData(_x) {
+  return _fetchCartData.apply(this, arguments);
 }
-function _updateCartItem() {
-  _updateCartItem = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
-    var form, productId, quantity, res, resData, _resData$updatedCartD, newTotalQuantity, newTotalPrice, updatedProductPrice, cartItemPriceElement;
+function _fetchCartData() {
+  _fetchCartData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var form, productId, quantity, res, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          event.preventDefault();
-          form = event.target;
+          form = _ref.target;
           productId = form.dataset.productid;
           quantity = form.firstElementChild.value;
-          _context.prev = 4;
-          _context.next = 7;
+          _context.prev = 3;
+          _context.next = 6;
           return fetch('/cart/items', {
             method: 'PATCH',
             headers: {
@@ -39,44 +38,62 @@ function _updateCartItem() {
               quantity: quantity
             })
           });
-        case 7:
+        case 6:
           res = _context.sent;
-          _context.next = 14;
-          break;
-        case 10:
-          _context.prev = 10;
-          _context.t0 = _context["catch"](4);
-          // eslint-disable-next-line no-alert
-          alert('Something went wrong');
-          return _context.abrupt("return");
-        case 14:
           if (res.ok) {
-            _context.next = 17;
+            _context.next = 10;
             break;
           }
           alert('Something went wrong');
           return _context.abrupt("return");
-        case 17:
-          _context.next = 19;
+        case 10:
+          _context.next = 12;
           return res.json();
+        case 12:
+          data = _context.sent;
+          return _context.abrupt("return", data);
+        case 16:
+          _context.prev = 16;
+          _context.t0 = _context["catch"](3);
+          alert('Something went wrong');
         case 19:
-          resData = _context.sent;
+        case "end":
+          return _context.stop();
+      }
+    }, _callee, null, [[3, 16]]);
+  }));
+  return _fetchCartData.apply(this, arguments);
+}
+function updateCartItem(_x2) {
+  return _updateCartItem.apply(this, arguments);
+}
+function _updateCartItem() {
+  _updateCartItem = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(event) {
+    var resData, _resData$updatedCartD, newTotalQuantity, newTotalPrice, updatedProductPrice, cartItemPriceElement;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          event.preventDefault();
+          _context2.next = 3;
+          return fetchCartData(event);
+        case 3:
+          resData = _context2.sent;
           _resData$updatedCartD = resData.updatedCartData, newTotalQuantity = _resData$updatedCartD.newTotalQuantity, newTotalPrice = _resData$updatedCartD.newTotalPrice, updatedProductPrice = _resData$updatedCartD.updatedProductPrice;
           if (updatedProductPrice === 0) {
-            form.closest('li').remove();
+            event.target.closest('li').remove();
           } else {
-            cartItemPriceElement = form.parentElement.querySelector('.cart-item-price');
+            cartItemPriceElement = event.target.parentElement.querySelector('.cart-item-price');
             cartItemPriceElement.textContent = updatedProductPrice.toFixed(2);
           }
           cartTotalPrice.textContent = newTotalPrice.toFixed(2);
           cartBadges.forEach(function (badge) {
             badge.textContent = newTotalQuantity;
           });
-        case 24:
+        case 8:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
-    }, _callee, null, [[4, 10]]);
+    }, _callee2);
   }));
   return _updateCartItem.apply(this, arguments);
 }
