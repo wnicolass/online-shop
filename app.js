@@ -9,6 +9,7 @@ const baseRoutes = require('./src/routes/base-routes');
 const productRoutes = require('./src/routes/product-routes');
 const adminRoutes = require('./src/routes/admin-routes');
 const cartRoutes = require('./src/routes/cart-routes');
+const orderRoutes = require('./src/routes/order-routes');
 const errorHandler = require('./src/middlewares/error-handler');
 const { checkUserAuthStatus } = require('./src/middlewares/check-auth');
 const enableFlashOnLocals = require('./src/middlewares/flash-messages');
@@ -46,6 +47,7 @@ class App {
     this.app.use(productRoutes);
     this.app.use('/cart', cartRoutes);
     this.app.use(protectRoutes);
+    this.app.use('/orders', orderRoutes);
     this.app.use('/admin', adminRoutes);
     this.app.use(errorHandler);
   }
