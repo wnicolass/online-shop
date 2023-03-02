@@ -30,7 +30,7 @@ class CartController {
     const updatedItemData = cart.updateItem(productId, quantity);
     req.session.cart = cart;
 
-    res.status().json({
+    res.status(200).json({
       message: 'Item updated!',
       updatedCartData: {
         newTotalQuantity: cart.totalQuantity,

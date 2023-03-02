@@ -12,3 +12,4 @@ import './assets/scripts/sidebar';
 import './assets/scripts/product-management';
 import './assets/scripts/image-preview';
 import './assets/scripts/cart-management';
+import './assets/scripts/cart-item-management';
