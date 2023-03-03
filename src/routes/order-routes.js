@@ -6,5 +6,6 @@ const orderController = require('../controllers/OrderController');
 // const { doubleCsrfProtection } = doubleCsrf(options);
 
 router.post('/', orderController.addOrder);
+router.get('/', orderController.getOrders);
 
 module.exports = router;

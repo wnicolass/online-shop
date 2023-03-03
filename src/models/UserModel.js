@@ -32,6 +32,10 @@ class User {
     return UserModel.findOne({ email: this.email });
   }
 
+  static findUserById(id) {
+    return UserModel.findOne({ _id: id }, 'email name address');
+  }
+
   hasMatchingPasswords(hashedPassword) {
     return bcrypt.compare(this.password, hashedPassword);
   }
