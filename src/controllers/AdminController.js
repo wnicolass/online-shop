@@ -1,5 +1,6 @@
 const { genToken } = require('../utils/gen-token');
 const Product = require('../models/ProductModel');
+const Order = require('../models/OrderModel');
 const { areInputsEmpty } = require('../utils/validation');
 
 class AdminController {
@@ -81,12 +82,38 @@ class AdminController {
     let product;
     try {
       product = await Product.findProductById(req.params.id);
-      await product.remove();
+      await product.delete();
     } catch (err) {
       return next(err);
     }
 
     return res.status(200).json('ok');
+  }
+
+  async getOrders(req, res, next) {
+    try {
+      const orders = await Order.findAll();
+      return res.render('admin/orders/admin-orders', {
+        orders,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  async updateOrder(req, res, next) {
+    const orderId = req.params.id;
+    const { newStatus } = req.body;
+
+    try {
+      const order = await Order.findOrderById(orderId);
+      order.status = newStatus;
+      await order.update();
+
+      return res.json({ message: 'Order updated', newStatus });
+    } catch (error) {
+      return next(error);
+    }
   }
 }
 

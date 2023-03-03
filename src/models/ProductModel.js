@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = require('mongodb');
 const ProductSchema = require('../schemas/ProductSchema');
 
 const ProductModel = mongoose.model('Product', ProductSchema);
@@ -44,6 +45,13 @@ class Product {
     }
 
     return new Product(foundProduct);
+  }
+
+  static async findMultiple(ids) {
+    const productIds = ids.map((id) => new ObjectId(id));
+    const products = await ProductModel.find({ _id: { $in: productIds } });
+
+    return products.map((prodDoc) => new Product(prodDoc));
   }
 
   async update() {

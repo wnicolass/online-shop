@@ -6,7 +6,7 @@ const { options } = require('../config/csrf-options');
 const { doubleCsrfProtection } = doubleCsrf(options);
 
 router.get('/', cartController.getCart);
-router.post('/items', cartController.addCartItem);
-router.patch('/items', cartController.updateCartItem);
+router.post('/items', doubleCsrfProtection, cartController.addCartItem);
+router.patch('/items', doubleCsrfProtection, cartController.updateCartItem);
 
 module.exports = router;

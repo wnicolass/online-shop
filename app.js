@@ -9,11 +9,14 @@ const baseRoutes = require('./src/routes/base-routes');
 const productRoutes = require('./src/routes/product-routes');
 const adminRoutes = require('./src/routes/admin-routes');
 const cartRoutes = require('./src/routes/cart-routes');
+const orderRoutes = require('./src/routes/order-routes');
 const errorHandler = require('./src/middlewares/error-handler');
 const { checkUserAuthStatus } = require('./src/middlewares/check-auth');
 const enableFlashOnLocals = require('./src/middlewares/flash-messages');
 const protectRoutes = require('./src/middlewares/protect-routes');
 const initializeCart = require('./src/middlewares/cart');
+const updatePrices = require('./src/middlewares/update-cart-prices');
+const notFoundHandler = require('./src/middlewares/not-found');
 const createSessionConfig = require('./src/config/session');
 
 const sessionConfig = createSessionConfig();
@@ -38,6 +41,7 @@ class App {
     this.app.use(checkUserAuthStatus);
     this.app.use(enableFlashOnLocals);
     this.app.use(initializeCart);
+    this.app.use(updatePrices);
   }
 
   routes() {
@@ -45,8 +49,9 @@ class App {
     this.app.use(authRoutes);
     this.app.use(productRoutes);
     this.app.use('/cart', cartRoutes);
-    this.app.use(protectRoutes);
-    this.app.use('/admin', adminRoutes);
+    this.app.use('/orders', protectRoutes, orderRoutes);
+    this.app.use('/admin', protectRoutes, adminRoutes);
+    this.app.use(notFoundHandler);
     this.app.use(errorHandler);
   }
 }

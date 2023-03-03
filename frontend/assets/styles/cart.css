@@ -35,6 +35,11 @@
   color: var(--primary-color-500);
 }
 
+#cart-total #cart-total-fallback {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 48rem) {
   .cart-item {
     flex-direction: column;

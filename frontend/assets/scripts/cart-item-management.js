@@ -4,12 +4,15 @@ const cartBadges = document.querySelectorAll('.nav-items .badge');
 
 async function fetchCartData({ target: form }) {
   const productId = form.dataset.productid;
+  const token = form.dataset.csrftoken;
+
   const quantity = form.firstElementChild.value;
   try {
     const res = await fetch('/cart/items', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        'x-csrf-token': token,
       },
       body: JSON.stringify({
         productId, quantity,
