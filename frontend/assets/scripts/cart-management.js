@@ -1,5 +1,5 @@
 const addToCartBtn = document.querySelector('#product-details button');
-const cartBadge = document.querySelector('.nav-items .badge');
+const cartBadges = document.querySelectorAll('.nav-items .badge');
 
 async function addToCart() {
   const productId = addToCartBtn.dataset.productid;
@@ -28,9 +28,9 @@ async function addToCart() {
 
   const resData = await res.json();
 
-  console.log(resData);
   const totalCartQuantity = resData.newTotalItems;
-  cartBadge.textContent = totalCartQuantity;
+  // eslint-disable-next-line no-return-assign
+  cartBadges.forEach((badge) => badge.textContent = totalCartQuantity);
 }
 
 if (window.location.href.startsWith('http://localhost:3000/products/')) {

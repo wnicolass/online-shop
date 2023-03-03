@@ -1,3 +1,5 @@
+const Product = require('./ProductModel');
+
 class Cart {
   constructor(items = [], totalQuantity = 0, totalPrice = 0) {
     this.items = items;
@@ -52,6 +54,47 @@ class Cart {
         this.totalPrice -= item.totalPrice;
         return { updatedItemPrice: 0 };
       }
+    }
+  }
+
+  async updatePrices() {
+    const productIds = this.items.map((item) => item.product.id);
+    const products = await Product.findMultiple(productIds);
+
+    const deletableCartItemProductIds = [];
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const cartItem of this.items) {
+      const product = products.find((prod) => prod.id === cartItem.product.id);
+
+      if (!product) {
+        // product was deleted!
+        // "schedule" for removal from cart
+        deletableCartItemProductIds.push(cartItem.product.id);
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      // product was not deleted
+      // set product data and total price to latest price from database
+      cartItem.product = product;
+      cartItem.totalPrice = cartItem.quantity * cartItem.product.price;
+    }
+
+    if (deletableCartItemProductIds.length > 0) {
+      this.items = this.items.filter(
+        (item) => deletableCartItemProductIds.indexOf(item.product.id) < 0,
+      );
+    }
+
+    // re-calculate cart totals
+    this.totalQuantity = 0;
+    this.totalPrice = 0;
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const item of this.items) {
+      this.totalQuantity += item.quantity;
+      this.totalPrice += item.totalPrice;
     }
   }
 }

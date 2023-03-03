@@ -34,6 +34,10 @@
   margin-right: var(--space-4);
 }
 
+.order-details address {
+  margin-bottom: var(--space-2);
+}
+
 .order-details ul {
   list-style: square;
   margin-left: var(--space-8);
