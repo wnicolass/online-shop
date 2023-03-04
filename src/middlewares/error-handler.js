@@ -1,4 +1,5 @@
 function handleServerError(err, req, res, next) {
+  console.error(err);
   console.log(err.message);
 
   if (err.code === 404) {
