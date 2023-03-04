@@ -22,14 +22,14 @@ class AdminController {
   async createProduct(req, res, next) {
     delete req.body.csrfToken;
 
-    const isDataValid = areInputsEmpty(
+    const isDataInvalid = areInputsEmpty(
       req.body.title,
       req.body.summary,
       req.body.price,
       req.body.description,
     );
 
-    if (isDataValid || !req.file) {
+    if (isDataInvalid || !req.file) {
       req.flash('error', 'Please. Fill in all fields');
       return req.session.save(() => res.redirect('back'));
     }
